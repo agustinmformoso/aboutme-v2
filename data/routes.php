@@ -9,6 +9,9 @@ $sections = [
     ],
     'sign-up' => [
         'title' => 'About Me | Registrarse',
+        'js' => [
+            'js/password.js'
+        ],
     ],
     'password-reset' => [
         'title' => 'About Me | Recupera tu cuenta',
@@ -18,6 +21,9 @@ $sections = [
     ],
     '404' => [
         'title' => 'About Me | Página no encontrada',
+    ],
+    'maintenance' => [
+        'title' => 'About Me | Página en mantenimiento',
     ],
     'profile' => [
         'title' => 'About Me | Perfil',

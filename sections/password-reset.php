@@ -1,4 +1,5 @@
 <?php
+$oldData = sessionGetFlashValue('old_data', []);
 ?>
 
 <section>
@@ -15,11 +16,6 @@
             <div class="login__form-group">
                 <label for="email">Email</label>
                 <input class="login__input" type="email" id="email" name="email" placeholder="Email" value="<?= $oldData['email'] ?? ''; ?>">
-                <?php
-                if (isset($errors['email'])) : ?>
-                    <div class="login__error" id="error-email"><?= $errors['email']; ?></div>
-                <?php
-                endif; ?>
             </div>
 
             <button class="button login__button">Continuar</button>

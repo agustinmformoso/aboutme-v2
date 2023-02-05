@@ -439,3 +439,13 @@ section {
     width: 50%;
     padding: var(--spacing-8);
 }
+
+/* ALERTS */
+
+.alerts {
+    width: fit-content;
+    display: flex;
+    align-self: flex-end;
+    margin-right: var(--spacing-16);
+    padding: var(--spacing-4) var(--spacing-8);
+}

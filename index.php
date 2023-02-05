@@ -20,7 +20,7 @@ $statusInfo     = sessionGetFlashValue('status_info');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -74,17 +74,17 @@ $statusInfo     = sessionGetFlashValue('status_info');
 
         <?php
         if ($statusSuccess !== null) : ?>
-            <div class="card status-message" role="alert"><?= $statusSuccess; ?></div>
+            <div class="card alerts" role="alert"><?= $statusSuccess; ?></div>
         <?php
         endif; ?>
         <?php
         if ($statusError !== null) : ?>
-            <div class="card status-message" role="alert"><?= $statusError; ?></div>
+            <div class="card alerts" role="alert"><?= $statusError; ?></div>
         <?php
         endif; ?>
         <?php
         if ($statusInfo !== null) : ?>
-            <div class="card status-message" role="alert"><?= $statusInfo; ?></div>
+            <div class="card alerts" role="alert"><?= $statusInfo; ?></div>
         <?php
         endif; ?>
     </main>
