@@ -175,7 +175,8 @@ section {
 }
 
 .navbar__button,
-.login__button {
+.login__button,
+.edit__button {
     font-weight: 800;
 }
 
@@ -462,6 +463,7 @@ section {
     background: 100%;
     background-size: cover;
     background-position: center center;
+    border-bottom: 1px solid var(--gray-070-solid);
 }
 
 .profile__body {
@@ -523,6 +525,14 @@ section {
     text-decoration: underline;
 }
 
+.profile__stats__actions {
+    min-width: 102px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--spacing-16);
+}
+
 .profile__biography {
     padding: var(--spacing-8) 0;
 }
@@ -539,4 +549,14 @@ section {
 
 .profile__user-data p {
     margin-right: var(--spacing-16);
+}
+
+.edit__button {
+    transition: var(--transition-5ms);
+}
+
+.edit__button:hover {
+    text-decoration: none !important;
+    background-color: var(--gray-070);
+    transition: var(--transition-5ms);
 }

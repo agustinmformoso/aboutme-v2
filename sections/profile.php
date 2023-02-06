@@ -17,7 +17,7 @@ $creation_date = new DateTime($user['creation_date']);
 
 <section>
     <div class="section__header">
-        <h1>Perfil</h1>
+        <h1><?= $user['name']; ?></h1>
     </div>
 
     <div class="section__content">
@@ -52,7 +52,10 @@ $creation_date = new DateTime($user['creation_date']);
                         </a>
 
                         <div class="profile__stats__actions">
-                            <a href="index.php?s=edit-profile" class="button">Edit profile</a>
+                            <?php
+                            if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
+                                <a href="index.php?s=edit-profile" class="button edit__button">Edit profile</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
