@@ -27,10 +27,12 @@ $posts = getAllPosts($db);
                 <div class="card post">
                     <div class="post__content">
                         <div class="post__content__post-data">
-                            <div class="profile-picture">
-                                <img src="img/<?= getUserById($db, $post['id_user'])['profile_picture'] ?>" alt="<?= htmlspecialchars(getUserById($db, $post['id_user'])['profile_picture_alt']); ?>">
-                            </div>
-
+                            <a href="index.php?s=profile&id=<?= $post['id_user']; ?>">
+                                <div class="profile-picture">
+                                    <img src="img/<?= getUserById($db, $post['id_user'])['profile_picture'] ?>" alt="<?= htmlspecialchars(getUserById($db, $post['id_user'])['profile_picture_alt']); ?>">
+                                </div>
+                            </a>
+                            
                             <div class="post__likes">
                                 <span>99</span>
                                 <i class="fa-solid fa-heart"></i>
@@ -39,7 +41,7 @@ $posts = getAllPosts($db);
 
                         <div class="post__content__main">
                             <div class="post__user-data">
-                                <a href="index.php?s=profile">
+                                <a href="index.php?s=profile&id=<?= $post['id_user']; ?>">
                                     <p><?= getUserById($db, $post['id_user'])['name'] ?></p>
                                 </a>
                                 <span>@<?= getUserById($db, $post['id_user'])['username'] ?></span>
@@ -125,9 +127,9 @@ $posts = getAllPosts($db);
                             foreach (getCommentsById($db, $post['id_post']) as $comment) :
                             ?>
                                 <div class="comment">
-                                <a href="index.php?s=profile">
-                                    <p class="comment__user"><?= htmlspecialchars(getUserById($db, $comment['id_user'])['username']); ?></p>
-                                </a>
+                                    <a href="index.php?s=profile&id=<?= $comment['id_user']; ?>">
+                                        <p class="comment__user"><?= htmlspecialchars(getUserById($db, $comment['id_user'])['username']); ?></p>
+                                    </a>
                                     <p class="comment__text"><?= htmlspecialchars($comment['comment_content']); ?></p>
                                 </div>
                             <?php

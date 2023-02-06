@@ -11,7 +11,7 @@ $oldData = sessionGetFlashValue('old_data', []);
         <form class="card login" action="actions/password-reset.php" method="POST">
             <h2>Recupera tu cuenta</h2>
 
-            <p>Introduce el correo electrónico asociado a tu cuenta para cambiar tu contraseña.</p>
+            <p class="login__caption">Introduce el correo electrónico asociado a tu cuenta para cambiar tu contraseña.</p>
 
             <div class="login__form-group">
                 <label for="email">Email</label>

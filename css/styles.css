@@ -174,11 +174,13 @@ section {
     border-radius: var(--border-radius-50-percent);
 }
 
-.navbar__button, .login__button {
+.navbar__button,
+.login__button {
     font-weight: 800;
 }
 
-.navbar__button--login, .login__button {
+.navbar__button--login,
+.login__button {
     margin-bottom: var(--spacing-12);
     background-color: var(--black) !important;
     color: var(--white);
@@ -272,7 +274,7 @@ section {
     text-decoration: underline;
 }
 
-.post__user-data p  {
+.post__user-data p {
     font-weight: 800;
     margin-right: var(--spacing-4);
 }
@@ -409,7 +411,8 @@ section {
     align-items: center;
 }
 
-.login h2, .login p {
+.login h2,
+.login__caption {
     margin-bottom: var(--spacing-16);
 }
 
@@ -448,4 +451,92 @@ section {
     align-self: flex-end;
     margin-right: var(--spacing-16);
     padding: var(--spacing-4) var(--spacing-8);
+}
+
+/* PROFILE */
+
+.profile__header {
+    height: 200px;
+    border-top-left-radius: var(--border-radius-6);
+    border-top-right-radius: var(--border-radius-6);
+    background: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.profile__body {
+    padding: var(--spacing-16);
+}
+
+.profile__profile-picture {
+    position: absolute;
+    top: -83.5px;
+    height: 135px;
+    width: 135px;
+}
+
+.profile__profile-picture img {
+    width: 100%;
+    border-radius: 50%;
+    border: 6px solid var(--white);
+}
+
+.profile__account {
+    padding-left: calc(135px + 16px);
+}
+
+.profile__account p {
+    font-weight: bold;
+}
+
+.profile__account span {
+    color: var(--gray-550);
+}
+
+.profile__stats {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.profile__stats__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 var(--spacing-4);
+}
+
+.profile__stats__stat span {
+    font-weight: bold;
+}
+
+.profile__stats__container {
+    display: flex;
+}
+
+.profile__stats__container a {
+    text-decoration: none;
+}
+
+.profile__stats__container a:hover {
+    text-decoration: underline;
+}
+
+.profile__biography {
+    padding: var(--spacing-8) 0;
+}
+
+.profile__user-data {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile__user-data i,
+.profile__user-data p {
+    color: var(--gray-550-solid);
+}
+
+.profile__user-data p {
+    margin-right: var(--spacing-16);
 }

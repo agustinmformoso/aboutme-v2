@@ -10,7 +10,7 @@
         <form class="card login" action="actions/new-password.php" method="POST">
             <h2>Nueva contraseña</h2>
 
-            <p>Asegúrate de que tu contraseña tenga 8 caracteres o más. Intenta que incluya números, letras y signos de puntuación para que sea una contraseña segura. </p>
+            <p class="login__caption">Asegúrate de que tu contraseña tenga 8 caracteres o más. Intenta que incluya números, letras y signos de puntuación para que sea una contraseña segura. </p>
 
             <input type="hidden" name="token" value="<?= $_GET['token']; ?>">
             <input type="hidden" name="email" value="<?= $_GET['email']; ?>">

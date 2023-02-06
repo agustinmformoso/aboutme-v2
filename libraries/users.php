@@ -47,7 +47,6 @@ function getUserById($db, $id)
     }
 }
 
-
 /**
  * Creates a new user in the database with the $data provided.
  * If sucessful, it returns the id of the created user.

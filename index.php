@@ -41,7 +41,7 @@ $statusInfo     = sessionGetFlashValue('status_info');
 
             <?php
             if (authIsAutenticated()) : ?>
-                <li class="navbar__li"><a href="index.php?s=profile"><i class="fa-solid fa-user fa-xl navbar__icon"></i></a></li>
+                <li class="navbar__li"><a href="index.php?s=profile&id=<?= authGetUser()['id_user']; ?>"><i class="fa-solid fa-user fa-xl navbar__icon"></i></a></li>
                 <li class="navbar__li"><a href="actions/logout.php"><i class="fa-solid fa-right-from-bracket fa-xl navbar__icon"></i></a></li>
             <?php endif; ?>
         </ul>
