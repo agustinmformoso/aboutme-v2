@@ -2,10 +2,10 @@
 
 [ ] Check new password flow.
 [ ] Unauthorized popup.
-[ ] Profile.
-[ ] New post.
-[ ] New post home.
-[ ] Delete post.
+[x] Profile.
+[x] New post.
+[x] New post home.
+[x] Delete post.
 [ ] Edit post.
 [ ] Edit profile.
 [ ] Default image.

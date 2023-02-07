@@ -176,7 +176,8 @@ section {
 
 .navbar__button,
 .login__button,
-.edit__button {
+.edit__button,
+.new-post__button {
     font-weight: 800;
 }
 
@@ -187,11 +188,15 @@ section {
     color: var(--white);
 }
 
-.navbar__button--sign-up {
+.navbar__button--sign-up,
+.new-post__button {
     transition: var(--transition-5ms);
+
 }
 
-.navbar__button--sign-up:hover {
+.navbar__button--sign-up:hover,
+.new-post__button:hover {
+    cursor: pointer;
     background-color: var(--gray-070);
     transition: var(--transition-5ms);
 }
@@ -452,6 +457,9 @@ section {
     align-self: flex-end;
     margin-right: var(--spacing-16);
     padding: var(--spacing-4) var(--spacing-8);
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
 }
 
 /* PROFILE */
@@ -461,9 +469,9 @@ section {
     border-top-left-radius: var(--border-radius-6);
     border-top-right-radius: var(--border-radius-6);
     background: 100%;
+    background-color: var(--gray-100-solid);
     background-size: cover;
     background-position: center center;
-    border-bottom: 1px solid var(--gray-070-solid);
 }
 
 .profile__body {
@@ -559,4 +567,135 @@ section {
     text-decoration: none !important;
     background-color: var(--gray-070);
     transition: var(--transition-5ms);
+}
+
+/* NEW POST */
+
+.new-post {
+    padding: var(--spacing-16) var(--spacing-32);
+}
+
+.new-post__column {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-post__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-post__select {
+    border: none;
+    width: fit-content;
+    padding: 0 var(--spacing-8);
+    font-weight: 800;
+    background-color: transparent;
+}
+
+.new-post__select:focus {
+    outline: none;
+}
+
+.new-post__select-wrapper {
+    border: 2px solid var(--black);
+    border-radius: var(--border-radius-25);
+    padding: 0 var(--spacing-4);
+}
+
+.new-post__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.new-post__title {
+    margin-top: var(--spacing-8);
+    border-radius: var(--border-radius-25);
+    border: 2px solid var(--black);
+    padding-left: var(--spacing-16);
+}
+
+.new-post__post-box {
+    border-radius: var(--border-radius-6);
+    resize: none;
+    margin: var(--spacing-8) 0;
+    padding: var(--spacing-4) 0;
+    padding-left: var(--spacing-16);
+    border: 2px solid var(--black);
+}
+
+.new-post__title:focus,
+.new-post__post-box:focus {
+    outline: none;
+}
+
+/* STAR RATING */
+
+.new-post__star-rating>input:checked~label,
+.new-post__star-rating:hover>input+label:hover,
+.new-post__star-rating:hover>input+label:hover~input+label,
+.new-post__star-rating>label,
+.new-post__star-rating:hover>input+label {
+    display: inline-block;
+}
+
+.new-post__star-rating>input:checked~label:after,
+.new-post__star-rating:hover>input+label:hover:after,
+.new-post__star-rating:hover>input+label:hover~input+label:after,
+.new-post__star-rating>label:after,
+.new-post__star-rating:hover>input+label:after {
+    font-family: "Font Awesome 6 Pro", "Line Awesome Free";
+}
+
+.new-post__star-rating>input:checked~label:after,
+.new-post__star-rating:hover>input+label:hover:after,
+.new-post__star-rating:hover>input+label:hover~input+label:after {
+    font-weight: 900;
+    content: "\f005";
+    cursor: pointer;
+}
+
+.new-post__star-rating>label:after,
+.new-post__star-rating:hover>input+label:after {
+    font-weight: 400;
+    content: "\f005";
+}
+
+.new-post__star-rating {
+    border: none;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.new-post__star-rating>input {
+    display: none;
+}
+
+/* CUSTOM FILE UPDATE */
+
+input[type="file"] {
+    display: none;
+}
+
+.new-post__file {
+    width: var(--spacing-32);
+    height: var(--spacing-32);
+    margin: 0;
+    margin-right: var(--spacing-12);
+    background-color: black;
+    border-radius: 50%;
+    padding: var(--spacing-8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-post__file i {
+    color: var(--white);
+}
+
+.new-post__file:hover {
+    cursor: pointer;
 }

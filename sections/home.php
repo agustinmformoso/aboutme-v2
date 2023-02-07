@@ -13,6 +13,54 @@ $posts = getAllPosts($db);
 
     <div class="section__content">
         <?php
+        if (authIsAutenticated()) : ?>
+            <form class="card new-post" action="actions/post-create.php?id=<?= authGetUser()['id_user']; ?>&id_user=<?= authGetUser()['id_user']; ?>&s=profile" method="POST">
+                <div class="new-post__column">
+
+                </div>
+
+                <div class="new-post__column">
+                    <div class="new-post__row">
+                        <div class="new-post__select-wrapper">
+                            <select name="type" id="" class="new-post__select">
+                                <option value="Film">Film</option>
+                                <option value="Serie">Serie</option>
+                                <option value="Book">Book</option>
+                                <option value="Game">Game</option>
+                            </select>
+                        </div>
+
+                        <fieldset class="new-post__star-rating">
+                            <input type="radio" value="5" id="stars-star5" name="rating">
+                            <label for="stars-star5" title="5 Stars"></label>
+                            <input type="radio" value="4" id="stars-star4" name="rating">
+                            <label for="stars-star4" title="4 Stars"></label>
+                            <input type="radio" value="3" id="stars-star3" name="rating">
+                            <label for="stars-star3" title="3 Stars"></label>
+                            <input type="radio" value="2" id="stars-star2" name="rating">
+                            <label for="stars-star2" title="2 Stars"></label>
+                            <input type="radio" value="1" id="stars-star1" name="rating">
+                            <label for="stars-star1" title="1 Stars"></label>
+                        </fieldset>
+                    </div>
+
+                    <input class="new-post__title" type="text" name="title" placeholder="Title" />
+
+                    <textarea name="content" class="new-post__post-box" rows="4" placeholder="Post something..."></textarea>
+
+                    <div class="new-post__actions">
+                        <label class="new-post__file">
+                            <input type="file" />
+                            <i class="fa-solid fa-image"></i>
+                        </label>
+
+                        <button class="button new-post__button">Post</button>
+                    </div>
+                </div>
+            </form>
+        <?php endif; ?>
+
+        <?php
         if (!$posts) : ?>
             <div class="unavailable-posts">
                 <i class="far fa-frown-open fa-5x"></i>
@@ -32,7 +80,7 @@ $posts = getAllPosts($db);
                                     <img src="img/<?= getUserById($db, $post['id_user'])['profile_picture'] ?>" alt="<?= htmlspecialchars(getUserById($db, $post['id_user'])['profile_picture_alt']); ?>">
                                 </div>
                             </a>
-                            
+
                             <div class="post__likes">
                                 <span>99</span>
                                 <i class="fa-solid fa-heart"></i>
@@ -113,7 +161,7 @@ $posts = getAllPosts($db);
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">
                                         <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>"><i class="fa-solid fa-trash"></i></a>
+                                        <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>&id_user=<?= authGetUser()['id_user']; ?>&s=home"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
                             <?php endif; ?>
