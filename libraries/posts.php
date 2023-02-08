@@ -70,9 +70,11 @@ function createPost($db, $data)
 
     if ($success) {
         mysqli_insert_id($db);
+
+        return $success;
     }
 
-    return $success;
+    return false;
 }
 
 /**

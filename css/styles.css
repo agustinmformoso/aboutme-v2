@@ -630,6 +630,13 @@ section {
     outline: none;
 }
 
+.new-post__button:disabled {
+    cursor: unset;
+    background-color: var(--gray-070-solid);
+    border: 2px solid var(--gray-550-solid);
+    color: var(--gray-550-solid);
+}
+
 /* STAR RATING */
 
 .new-post__star-rating>input:checked~label,

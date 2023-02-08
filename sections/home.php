@@ -14,7 +14,7 @@ $posts = getAllPosts($db);
     <div class="section__content">
         <?php
         if (authIsAutenticated()) : ?>
-            <form class="card new-post" action="actions/post-create.php?id=<?= authGetUser()['id_user']; ?>&id_user=<?= authGetUser()['id_user']; ?>&s=profile" method="POST">
+            <form class="card new-post" action="actions/post-create.php?id=<?= authGetUser()['id_user']; ?>&id_user=<?= authGetUser()['id_user']; ?>&s=home" method="POST">
                 <div class="new-post__column">
 
                 </div>
@@ -44,9 +44,9 @@ $posts = getAllPosts($db);
                         </fieldset>
                     </div>
 
-                    <input class="new-post__title" type="text" name="title" placeholder="Title" />
+                    <input id="new-post__title" class="new-post__title" type="text" name="title" placeholder="Title" />
 
-                    <textarea name="content" class="new-post__post-box" rows="4" placeholder="Post something..."></textarea>
+                    <textarea id="new-post__content" name="content" class="new-post__post-box" rows="4" placeholder="Post something..."></textarea>
 
                     <div class="new-post__actions">
                         <label class="new-post__file">
@@ -54,7 +54,7 @@ $posts = getAllPosts($db);
                             <i class="fa-solid fa-image"></i>
                         </label>
 
-                        <button class="button new-post__button">Post</button>
+                        <button id="new-post__button" class="button new-post__button">Post</button>
                     </div>
                 </div>
             </form>
@@ -70,7 +70,7 @@ $posts = getAllPosts($db);
         <?php
         else : ?>
             <?php
-            foreach ($posts as $post) :
+            foreach (array_reverse($posts) as $post) :
             ?>
                 <div class="card post">
                     <div class="post__content">

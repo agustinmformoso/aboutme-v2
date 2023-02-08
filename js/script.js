@@ -1,3 +1,17 @@
+let newPostButton = document.getElementById('new-post__button');
+let newPostTitle = document.getElementById('new-post__title');
+let newPostContent = document.getElementById('new-post__content');
+
+newPostButton.disabled = true;
+
+window.addEventListener('keyup', (e) => {
+    if (newPostTitle.value !== '' && newPostContent.value !== '') {
+        newPostButton.disabled = false;
+    } else {
+        newPostButton.disabled = true;
+    }
+})
+
 if ( window.history.replaceState ) {
     window.history.replaceState( null, null, window.location.href );
 }

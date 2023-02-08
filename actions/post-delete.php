@@ -8,6 +8,11 @@ $id_user = $_GET['id_user'];
 
 $success = postDelete($db, $id);
 
+function redirect()
+{
+    // @TODO - - > Redirect
+}
+
 if ($success) {
     $_SESSION['status_success'] = "¡El post fue eliminado exitosamente!";
   

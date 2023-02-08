@@ -13,6 +13,12 @@ $rating     = trim($_POST['rating']);
 
 $errors = [];
 
+function redirect()
+{
+    // @TODO - - > Redirect
+}
+
+
 if (empty($title)) {
     $errors['title'] = "El título no puede estar vacío.";
 }
@@ -25,14 +31,16 @@ if (empty($content)) {
     $errors['content'] = "El contenido no puede estar vacío.";
 }
 
-if (empty($rating)) {
-    $errors['rating'] = "El rating no puede estar vacío.";
-}
-
 if (!empty($errors)) {
     $_SESSION['old_data'] = $_POST;
     $_SESSION['errors'] = $errors;
-    header("Location: ../index.php?s=home");
+
+    if ($section == 'home') {
+        header("Location: ../index.php?s=home");
+    } else {
+        header("Location: ../index.php?s=profile&id=$id_user");
+    }
+
     exit;
 }
 
@@ -41,7 +49,7 @@ $success = createPost($db, [
     'title'   => $title,
     'type'    => $type,
     'content' => $content,
-    'rating'  => $rating,
+    'rating'  => $rating ? $rating : 0,
 ]);
 
 if ($success) {
@@ -54,7 +62,7 @@ if ($success) {
     }
 } else {
     $_SESSION['old_data'] = $_POST;
-    $_SESSION['status_error'] = "Ha ocurrido un error al crear el post. Por favor, intenta de nuevo más tarde. Si el problema persiste, comunícate con el soporte.";
+    $_SESSION['status_error'] = print_r($success);
   
     if ($section == 'home') {
         header("Location: ../index.php?s=home");

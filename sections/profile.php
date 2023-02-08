@@ -130,7 +130,7 @@ $creation_date = new DateTime($user['creation_date']);
         <?php
         else : ?>
             <?php
-            foreach ($posts as $post) :
+            foreach (array_reverse($posts) as $post) :
             ?>
                 <div class="card post">
                     <div class="post__content">
