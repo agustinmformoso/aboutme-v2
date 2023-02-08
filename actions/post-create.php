@@ -11,37 +11,13 @@ $title      = trim($_POST['title']);
 $content    = trim($_POST['content']);
 $rating     = trim($_POST['rating']);
 
-$errors = [];
-
-function redirect()
+function redirect($section, $id_user)
 {
-    // @TODO - - > Redirect
-}
-
-
-if (empty($title)) {
-    $errors['title'] = "El título no puede estar vacío.";
-}
-
-if (empty($type)) {
-    $errors['type'] = "El tipo no puede estar vacío.";
-}
-
-if (empty($content)) {
-    $errors['content'] = "El contenido no puede estar vacío.";
-}
-
-if (!empty($errors)) {
-    $_SESSION['old_data'] = $_POST;
-    $_SESSION['errors'] = $errors;
-
     if ($section == 'home') {
         header("Location: ../index.php?s=home");
     } else {
         header("Location: ../index.php?s=profile&id=$id_user");
     }
-
-    exit;
 }
 
 $success = createPost($db, [
@@ -55,18 +31,10 @@ $success = createPost($db, [
 if ($success) {
     $_SESSION['status_success'] = "¡Post enviado con éxito!";
     
-    if ($section == 'home') {
-        header("Location: ../index.php?s=home");
-    } else {
-        header("Location: ../index.php?s=profile&id=$id_user");
-    }
+    redirect($section, $id_user);
 } else {
     $_SESSION['old_data'] = $_POST;
     $_SESSION['status_error'] = print_r($success);
   
-    if ($section == 'home') {
-        header("Location: ../index.php?s=home");
-    } else {
-        header("Location: ../index.php?s=profile&id=$id_user");
-    }
+    redirect($section, $id_user);
 }

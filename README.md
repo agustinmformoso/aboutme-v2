@@ -1,13 +1,13 @@
 # aboutme-v2
 
-[ ] Check new password flow.
-[ ] Unauthorized popup.
 [x] Profile.
-[x] New post.
+[x] New post profile.
 [x] New post home.
 [x] Delete post.
+[ ] Check new password flow.
+[ ] Unauthorized popup.
 [ ] Edit post.
 [ ] Edit profile.
 [ ] Default image.
-[ ] Create post messages.
+[x] Create post messages.
 

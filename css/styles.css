@@ -706,3 +706,42 @@ input[type="file"] {
 .new-post__file:hover {
     cursor: pointer;
 }
+
+/* UNAUTHORIZED MODAL */
+
+.unauthorized-modal-wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unauthorized-modal {
+    padding: var(--spacing-16) var(--spacing-32);
+    width: 35%;
+    background-color: var(--white);
+    border-radius: var(--border-radius-25);
+    opacity: 100;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.unauthorized-modal p {
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-16);
+    width: 100%;
+    text-align: left;
+}
+
+.unauthorized-modal__actions {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+}

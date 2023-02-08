@@ -34,7 +34,7 @@ $statusInfo     = sessionGetFlashValue('status_info');
     <script src="https://kit.fontawesome.com/9939576bbf.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="body">
     <nav class="navbar">
         <ul class="navbar__ul">
             <li class="navbar__li"><a href="index.php?s=home"><i class="fa-solid fa-house fa-xl navbar__icon"></i></a></li>

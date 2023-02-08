@@ -104,9 +104,9 @@ $creation_date = new DateTime($user['creation_date']);
                         </fieldset>
                     </div>
 
-                    <input class="new-post__title" type="text" name="title" placeholder="Title" />
+                    <input id="new-post__title" class="new-post__title" type="text" name="title" placeholder="Title" />
 
-                    <textarea name="content" class="new-post__post-box" rows="4" placeholder="Post something..."></textarea>
+                    <textarea id="new-post__content" name="content" class="new-post__post-box" rows="4" placeholder="Post something..."></textarea>
 
                     <div class="new-post__actions">
                         <label class="new-post__file">
@@ -114,7 +114,7 @@ $creation_date = new DateTime($user['creation_date']);
                             <i class="fa-solid fa-image"></i>
                         </label>
 
-                        <button class="button new-post__button">Post</button>
+                        <button id="new-post__button" class="button new-post__button">Post</button>
                     </div>
                 </div>
             </form>
@@ -143,7 +143,7 @@ $creation_date = new DateTime($user['creation_date']);
 
                             <div class="post__likes">
                                 <span>99</span>
-                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-heart" onclick="unauthorizedModal(<?= authIsAutenticated() ? 'true' : 'false' ?>)"></i>
                             </div>
                         </div>
 

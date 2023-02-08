@@ -4,6 +4,8 @@ require './libraries/comments.php';
 
 $posts = getAllPosts($db);
 
+$test = 'asd'
+
 ?>
 
 <section>
@@ -83,7 +85,8 @@ $posts = getAllPosts($db);
 
                             <div class="post__likes">
                                 <span>99</span>
-                                <i class="fa-solid fa-heart"></i>
+
+                                <i class="fa-solid fa-heart" onclick="unauthorizedModal(<?= authIsAutenticated() ? 'true' : 'false' ?>)"></i>
                             </div>
                         </div>
 
