@@ -4,10 +4,28 @@
 [x] New post profile.
 [x] New post home.
 [x] Delete post.
+[x] Create post messages.
+[x] Unauthorized popup.
+
+## Today
+
+[x] Follower list.
+[x] Following list.
+[x] Follow action.
+[x] Unfollow action.
+
+[ ] Technical debt.
+
+[ ] Profile photo in new post.
+
+[ ] Like action.
+[ ] Get likes.
+
+
+## Next
+
 [ ] Check new password flow.
-[ ] Unauthorized popup.
 [ ] Edit post.
 [ ] Edit profile.
 [ ] Default image.
-[x] Create post messages.
-
+[ ] Upload images.

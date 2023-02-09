@@ -1,6 +1,7 @@
 <?php
 require './libraries/posts.php';
 require './libraries/comments.php';
+require './libraries/followers.php';
 require './utils/index.php';
 
 $id = $_GET['id'];
@@ -8,8 +9,10 @@ $id = $_GET['id'];
 $posts = getPostById($db, $id);
 $user = getUserById($db, $id);
 
-$followers = 1;
-$following = 2;
+$followers = count(getFollowersById($db, $id)) ? count(getFollowersById($db, $id)) : '0';
+$following = count(getFollowingById($db, $id)) ? count(getFollowingById($db, $id)) : '0';
+
+$is_following = isFollowing($db, authGetUser()['id_user'], $id);
 
 $birthdate = new DateTime($user['birthdate']);
 $creation_date = new DateTime($user['creation_date']);
@@ -28,7 +31,7 @@ $creation_date = new DateTime($user['creation_date']);
             <div class="profile__body">
                 <div class="profile__stats">
                     <div class="profile__profile-picture">
-                        <img src="img/<?= $user['profile_picture'] ? $user['profile_picture'] : 'default-profile.png' ?>" alt="<?= $user['profile_picture_alt']; ?>">
+                        <img src="img/<?= $user['profile_picture'] ?>" alt="<?= $user['profile_picture_alt']; ?>">
                     </div>
 
                     <div class="profile__account">
@@ -37,24 +40,28 @@ $creation_date = new DateTime($user['creation_date']);
                     </div>
 
                     <div class="profile__stats__container">
-                        <a href="index.php?s=followers-list">
+                        <a href="index.php?s=follow-list&id=<?= $id ?>&active=followers">
                             <div class="profile__stats__stat">
                                 <span><?= $followers ?></span>
-                                <p>Followers</p>
+                                <p>Seguidores</p>
                             </div>
                         </a>
 
-                        <a href="index.php?s=following-list">
+                        <a href="index.php?s=follow-list&id=<?= $id ?>&active=following">
                             <div class="profile__stats__stat">
                                 <span><?= $following ?></span>
-                                <p>Following</p>
+                                <p>Siguiendo</p>
                             </div>
                         </a>
 
                         <div class="profile__stats__actions">
                             <?php
                             if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
-                                <a href="index.php?s=edit-profile" class="button edit__button">Edit profile</a>
+                                <a href="index.php?s=edit-profile" class="button edit__button">Editar</a>
+                            <?php elseif ($is_following) : ?>
+                                <a href="actions/unfollow.php?id_follower=<?= authGetUser()['id_user'] ?>&id_user=<?= $id ?>" class="button unfollow__button">Dejar de seguir</a>
+                            <?php else : ?>
+                                <a href="actions/follow.php?id_follower=<?= authGetUser()['id_user'] ?>&id_user=<?= $id ?>" class="button follow__button">Seguir</a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -73,7 +80,7 @@ $creation_date = new DateTime($user['creation_date']);
         </div>
 
         <?php
-        if (authIsAutenticated()) : ?>
+        if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
             <form class="card new-post" action="actions/post-create.php?id=<?= authGetUser()['id_user']; ?>&id_user=<?= $id ?>&s=profile" method="POST">
                 <div class="new-post__column">
 

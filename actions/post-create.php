@@ -3,6 +3,8 @@ require_once '../data/bootstrap.php';
 require_once '../libraries/posts.php';
 require_once '../libraries/auth.php';
 
+// @TODO - - > REVIEW;
+
 $id_user    = $_GET['id'];
 $section    = $_GET['s'];
 $id_user    = $_GET['id_user'];
@@ -34,7 +36,7 @@ if ($success) {
     redirect($section, $id_user);
 } else {
     $_SESSION['old_data'] = $_POST;
-    $_SESSION['status_error'] = print_r($success);
+    $_SESSION['status_error'] = print_r($success); // @TODO - - > REVIEW
   
     redirect($section, $id_user);
 }

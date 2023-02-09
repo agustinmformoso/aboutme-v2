@@ -19,6 +19,9 @@ $sections = [
     'new-password' => [
         'title' => 'About Me | Nueva contraseña',
     ],
+    'follow-list' => [
+        'title' => 'About Me | ', 
+    ],
     '404' => [
         'title' => 'About Me | Página no encontrada',
     ],
