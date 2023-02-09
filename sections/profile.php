@@ -57,11 +57,11 @@ $creation_date = new DateTime($user['creation_date']);
                         <div class="profile__stats__actions">
                             <?php
                             if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
-                                <a href="index.php?s=edit-profile" class="button edit__button">Editar</a>
+                                <a href="index.php?s=edit-profile" class="button button--white">Editar</a>
                             <?php elseif ($is_following) : ?>
-                                <a href="actions/unfollow.php?id_follower=<?= authGetUser()['id_user'] ?>&id_user=<?= $id ?>" class="button unfollow__button">Dejar de seguir</a>
+                                <a href="actions/unfollow.php?id_follower=<?= authGetUser()['id_user'] ?>&id_user=<?= $id ?>" class="button button--black">Dejar de seguir</a>
                             <?php else : ?>
-                                <a href="actions/follow.php?id_follower=<?= authGetUser()['id_user'] ?>&id_user=<?= $id ?>" class="button follow__button">Seguir</a>
+                                <a href="actions/follow.php?id_follower=<?= authGetUser()['id_user'] ?>&id_user=<?= $id ?>" class="button button--white">Seguir</a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -121,7 +121,7 @@ $creation_date = new DateTime($user['creation_date']);
                             <i class="fa-solid fa-image"></i>
                         </label>
 
-                        <button id="new-post__button" class="button new-post__button">Post</button>
+                        <button id="new-post__button" class="button button--white">Post</button>
                     </div>
                 </div>
             </form>

@@ -25,7 +25,7 @@
                 <input class="login__input" type="password" id="password" name="password" placeholder="Contraseña">
             </div>
 
-            <button class="button login__button">Iniciar sesión</button>
+            <button class="button button--white button--form">Registrarse</button>
 
             <p>¿Ya tienes una cuenta? <a href="index.php?s=login">Iniciar sesión</a></p>
 

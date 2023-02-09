@@ -18,7 +18,7 @@ $oldData = sessionGetFlashValue('old_data', []);
                 <input class="login__input" type="email" id="email" name="email" placeholder="Email" value="<?= $oldData['email'] ?? ''; ?>">
             </div>
 
-            <button class="button login__button">Continuar</button>
+            <button class="button button--white button--form">Continuar</button>
         </form>
     </div>
 </section>

@@ -68,16 +68,53 @@ main {
     align-items: center;
 }
 
-/* BUTTON */
+/* BUTTONS */
 
 .button {
     background-color: unset;
     border-radius: var(--border-radius-25);
     padding: var(--spacing-4) var(--spacing-8);
     border: 2px solid var(--black);
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: var(--spacing-12) !important;
     text-align: center;
+    font-weight: 800;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button--white {
+    background-color: var(--white);
+    transition: var(--transition-5ms);
+}
+
+.button--white:hover {
+    transition: var(--transition-5ms);
+    background-color: var(--gray-070);
+}
+
+.button--black {
+    background-color: var(--black) !important;
+    color: var(--white);
+}
+
+.button--login {
+    margin-bottom: var(--spacing-12);
+}
+
+.button--form {
+    margin: var(--spacing-12);
+    padding: var(--spacing-8);
+    width: 50%;
+}
+
+.button:disabled {
+    cursor: unset;
+    background-color: var(--gray-070-solid);
+    border: 2px solid var(--gray-550-solid);
+    color: var(--gray-550-solid);
 }
 
 /* SECTIONS */
@@ -173,36 +210,6 @@ section {
 .navbar__profile-picture img {
     width: 100%;
     border-radius: var(--border-radius-50-percent);
-}
-
-.navbar__button,
-.login__button,
-.edit__button,
-.new-post__button,
-.unfollow__button,
-.follow__button {
-    font-weight: 800;
-}
-
-.navbar__button--login,
-.login__button,
-.unfollow__button {
-    margin-bottom: var(--spacing-12);
-    background-color: var(--black) !important;
-    color: var(--white);
-}
-
-.navbar__button--sign-up,
-.new-post__button {
-    transition: var(--transition-5ms);
-
-}
-
-.navbar__button--sign-up:hover,
-.new-post__button:hover {
-    cursor: pointer;
-    background-color: var(--gray-070);
-    transition: var(--transition-5ms);
 }
 
 /* CARD */
@@ -447,12 +454,6 @@ section {
     border-radius: var(--border-radius-6);
 }
 
-.login__button {
-    margin: var(--spacing-12);
-    width: 50%;
-    padding: var(--spacing-8);
-}
-
 /* ALERTS */
 
 .alerts {
@@ -563,16 +564,6 @@ section {
     margin-right: var(--spacing-16);
 }
 
-.edit__button {
-    transition: var(--transition-5ms);
-}
-
-.edit__button:hover {
-    text-decoration: none !important;
-    background-color: var(--gray-070);
-    transition: var(--transition-5ms);
-}
-
 /* NEW POST */
 
 .new-post {
@@ -607,6 +598,10 @@ section {
     padding: 0 var(--spacing-4);
 }
 
+.new-post__select:hover {
+    cursor: pointer;
+}
+
 .new-post__actions {
     display: flex;
     align-items: center;
@@ -632,13 +627,6 @@ section {
 .new-post__title:focus,
 .new-post__post-box:focus {
     outline: none;
-}
-
-.new-post__button:disabled {
-    cursor: unset;
-    background-color: var(--gray-070-solid);
-    border: 2px solid var(--gray-550-solid);
-    color: var(--gray-550-solid);
 }
 
 /* STAR RATING */
@@ -805,6 +793,8 @@ input[type="file"] {
     background-color: var(--gray-040);
     transition: var(--transition-5ms);
 }
+
+/* NO FOLLOW LIST */
 
 .no-follow-list {
     padding: var(--spacing-8) var(--spacing-32);

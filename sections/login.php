@@ -25,7 +25,7 @@
                 <input class="login__input" type="password" id="password" name="password" placeholder="Contraseña">
             </div>
 
-            <button class="button login__button">Iniciar sesión</button>
+            <button class="button button--black button--form">Iniciar sesión</button>
 
             <p><a href="index.php?s=password-reset">¿Olvidaste tu contraseña?</a>.</p>
             <p>¿No tienes una cuenta? <a href="index.php?s=sign-up">Regístrate!</a></p>

@@ -20,7 +20,7 @@
                 <input class="login__input" type="password" id="password" name="password" placeholder="Contraseña">
             </div>
 
-            <button class="button login__button">Continuar</button>
+            <button class="button button--white button--form">Continuar</button>
         </form>
     </div>
 </section>

@@ -49,8 +49,8 @@ $statusInfo     = sessionGetFlashValue('status_info');
         <?php
         if (!authIsAutenticated()) : ?>
             <div class="navbar__unauthorized">
-                <a class="button navbar__button navbar__button--login" href="index.php?s=login">Iniciar Sesión</a>
-                <a class="button navbar__button navbar__button--sign-up" href="index.php?s=sign-up">Registrarse</a>
+                <a class="button button--black button--login" href="index.php?s=login">Iniciar Sesión</a>
+                <a class="button button--white" href="index.php?s=sign-up">Registrarse</a>
             </div>
         <?php
         else : ?>

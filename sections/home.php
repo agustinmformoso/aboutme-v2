@@ -56,7 +56,7 @@ $test = 'asd'
                             <i class="fa-solid fa-image"></i>
                         </label>
 
-                        <button id="new-post__button" class="button new-post__button">Post</button>
+                        <button id="new-post__button" class="button button--white">Post</button>
                     </div>
                 </div>
             </form>

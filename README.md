@@ -13,6 +13,7 @@
 [x] Following list.
 [x] Follow action.
 [x] Unfollow action.
+[x] Buttons.
 
 [ ] Technical debt.
 
@@ -20,7 +21,6 @@
 
 [ ] Like action.
 [ ] Get likes.
-
 
 ## Next
 
