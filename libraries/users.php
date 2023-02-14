@@ -229,3 +229,25 @@ function userDeleteToken($db, $token)
 
     return $success;
 }
+
+/**
+ * Deletes the $token from password_reset.
+ *
+ * @param mysqli $db
+ * @param string $token
+ * @return bool|mysqli_result
+ */
+function userGetTokenById($db, $id)
+{
+    $id = mysqli_real_escape_string($db, $id);
+
+    $query = "SELECT token FROM password_reset
+              WHERE id_user = '" . $id . "'";
+    $res = mysqli_query($db, $query);
+
+    if ($row = mysqli_fetch_assoc($res)) {
+        return $_SESSION['token'] = $row['token'];
+    }
+
+    return false;
+}

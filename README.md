@@ -15,14 +15,14 @@
 [x] Check new password flow.
 [x] Follow, Unfollow, Edit buttons check.
 
-## Today
-
 - [x] Technical debt.
       -- [x] Default image and default image alt.
       -- [x] Modify return in create post.
       -- [x] Error message in post create.
 
-[ ] Token bug.
+[x] Token bug.
+
+## Today
 
 [ ] Like action.
 [ ] Get likes.

@@ -14,6 +14,12 @@ if (!$user) {
     exit;
 }
 
+$token = userGetTokenById($db, $user['id_user']);
+
+if ($token) {
+    userDeleteToken($db, $token);
+}
+
 $token = userGenerateResetToken($db, $user['id_user']);
 
 $body = file_get_contents(__DIR__ . '/../emails/new-password.html');
