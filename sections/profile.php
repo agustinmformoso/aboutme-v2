@@ -6,13 +6,16 @@ require './utils/index.php';
 
 $id = $_GET['id'];
 
+if (authIsAutenticated()) {
+    $id_user = authGetUser()['id_user'];
+    $is_following = isFollowing($db, authGetUser()['id_user'], $id);
+}
+
 $posts = getPostById($db, $id);
 $user = getUserById($db, $id);
 
 $followers = count(getFollowersById($db, $id)) ? count(getFollowersById($db, $id)) : '0';
 $following = count(getFollowingById($db, $id)) ? count(getFollowingById($db, $id)) : '0';
-
-$is_following = isFollowing($db, authGetUser()['id_user'], $id);
 
 $birthdate = new DateTime($user['birthdate']);
 $creation_date = new DateTime($user['creation_date']);
@@ -55,14 +58,14 @@ $creation_date = new DateTime($user['creation_date']);
                         </a>
 
                         <div class="profile__stats__actions">
-                            <?php
-                            if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
-                                <a href="index.php?s=edit-profile" class="button button--white">Editar</a>
-                            <?php elseif ($is_following) : ?>
-                                <a href="actions/unfollow.php?id_follower=<?= authGetUser()['id_user'] ?>&id_user=<?= $id ?>" class="button button--black">Dejar de seguir</a>
-                            <?php else : ?>
-                                <a href="actions/follow.php?id_follower=<?= authGetUser()['id_user'] ?>&id_user=<?= $id ?>" class="button button--white">Seguir</a>
-                            <?php endif; ?>
+                            <?php if (authIsAutenticated()) : if ($id_user === $id) : ?>
+                                    <a href="index.php?s=edit-profile" class="button button--white">Editar</a>
+                                <?php elseif ($is_following) : ?>
+                                    <a href="actions/unfollow.php?id_follower=<?= $id_user ?>&id_user=<?= $id ?>" class="button button--black">Dejar de seguir</a>
+                                <?php else : ?>
+                                    <a href="actions/follow.php?id_follower=<?= $id_user ?>&id_user=<?= $id ?>" class="button button--white">Seguir</a>
+                            <?php endif;
+                            endif; ?>
                         </div>
                     </div>
                 </div>
@@ -82,11 +85,15 @@ $creation_date = new DateTime($user['creation_date']);
         <?php
         if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
             <form class="card new-post" action="actions/post-create.php?id=<?= authGetUser()['id_user']; ?>&id_user=<?= $id ?>&s=profile" method="POST">
-                <div class="new-post__column">
-
+                <div class="new-post__column new-post__column--profile-picture">
+                    <a href="index.php?s=profile&id=<?= $id_user ?>">
+                        <div class="profile-picture">
+                            <img src="img/<?= getUserById($db, $id_user)['profile_picture'] ?>" alt="<?= htmlspecialchars(getUserById($db, $id_user)['profile_picture_alt']); ?>">
+                        </div>
+                    </a>
                 </div>
 
-                <div class="new-post__column">
+                <div class="new-post__column new-post__column--form">
                     <div class="new-post__row">
                         <div class="new-post__select-wrapper">
                             <select name="type" id="" class="new-post__select">
@@ -228,7 +235,7 @@ $creation_date = new DateTime($user['creation_date']);
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">
                                         <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>&id_user=<?= authGetUser()['id_user']; ?>&s=profile"><i class="fa-solid fa-trash"></i></a>
+                                        <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>&id_user=<?= $id_user ?>&s=profile"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
                             <?php endif; ?>

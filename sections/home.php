@@ -4,7 +4,9 @@ require './libraries/comments.php';
 
 $posts = getAllPosts($db);
 
-$test = 'asd'
+if (authIsAutenticated()) {
+    $id_user = authGetUser()['id_user'];
+}
 
 ?>
 
@@ -16,12 +18,16 @@ $test = 'asd'
     <div class="section__content">
         <?php
         if (authIsAutenticated()) : ?>
-            <form class="card new-post" action="actions/post-create.php?id=<?= authGetUser()['id_user']; ?>&id_user=<?= authGetUser()['id_user']; ?>&s=home" method="POST">
-                <div class="new-post__column">
-
+            <form class="card new-post" action="actions/post-create.php?id=<?= $id_user ?>&id_user=<?= $id_user ?>&s=home" method="POST">
+                <div class="new-post__column new-post__column--profile-picture">
+                    <a href="index.php?s=profile&id=<?= $id_user ?>">
+                        <div class="profile-picture">
+                            <img src="img/<?= getUserById($db, $id_user)['profile_picture'] ?>" alt="<?= htmlspecialchars(getUserById($db, $id_user)['profile_picture_alt']); ?>">
+                        </div>
+                    </a>
                 </div>
 
-                <div class="new-post__column">
+                <div class="new-post__column new-post__column--form">
                     <div class="new-post__row">
                         <div class="new-post__select-wrapper">
                             <select name="type" id="" class="new-post__select">
@@ -164,7 +170,7 @@ $test = 'asd'
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">
                                         <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>&id_user=<?= authGetUser()['id_user']; ?>&s=home"><i class="fa-solid fa-trash"></i></a>
+                                        <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>&id_user=<?= $id_user ?>&s=home"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
                             <?php endif; ?>

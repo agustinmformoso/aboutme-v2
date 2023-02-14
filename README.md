@@ -6,25 +6,26 @@
 [x] Delete post.
 [x] Create post messages.
 [x] Unauthorized popup.
-
-## Today
-
 [x] Follower list.
 [x] Following list.
 [x] Follow action.
 [x] Unfollow action.
 [x] Buttons.
+[x] Profile photo in new post.
+[x] Check new password flow.
+[x] Follow, Unfollow, Edit buttons check.
+
+## Today
+
+[ ] Token bug.
 
 [ ] Technical debt.
-
-[ ] Profile photo in new post.
 
 [ ] Like action.
 [ ] Get likes.
 
 ## Next
 
-[ ] Check new password flow.
 [ ] Edit post.
 [ ] Edit profile.
 [ ] Default image.
