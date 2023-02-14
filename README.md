@@ -17,9 +17,12 @@
 
 ## Today
 
-[ ] Token bug.
+- [x] Technical debt.
+      -- [x] Default image and default image alt.
+      -- [x] Modify return in create post.
+      -- [x] Error message in post create.
 
-[ ] Technical debt.
+[ ] Token bug.
 
 [ ] Like action.
 [ ] Get likes.
@@ -30,3 +33,5 @@
 [ ] Edit profile.
 [ ] Default image.
 [ ] Upload images.
+
+[ ] Technical debt.

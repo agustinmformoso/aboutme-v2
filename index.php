@@ -60,7 +60,7 @@ $statusInfo     = sessionGetFlashValue('status_info');
                     <img src="img/<?= authGetUser()['profile_picture']; ?>" alt="<?= authGetUser()['profile_picture_alt']; ?>" />
                 <?php
                 else : ?>
-                <p>no image</p>
+                    <p>no image</p>
                 <?php endif; ?>
             </div>
         <?php

@@ -51,7 +51,7 @@ function getPostById($db, $id)
  *
  * @param mysqli $db
  * @param mixed $id
- * @return array
+ * @return bool
  */
 function createPost($db, $data)
 {
@@ -60,9 +60,8 @@ function createPost($db, $data)
     $title = mysqli_real_escape_string($db, $data['title'] ?? '');
     $content = mysqli_real_escape_string($db, $data['content'] ?? '');
     $rating = mysqli_real_escape_string($db, $data['rating'] ?? '');
-
-    $image = ''; // @TODO - - - > Image Update
-    $alt_image = '';  // @TODO - - - > Image Update
+    $image = mysqli_real_escape_string($db, $data['image']) ? mysqli_real_escape_string($db, $data['image']) : '';
+    $alt_image = mysqli_real_escape_string($db, $data['alt_image']) ? mysqli_real_escape_string($db, $data['alt_image']) : '';
 
     $query = "INSERT INTO posts (title, content, rating, type, image, alt_image, id_user)
               VALUES ('" . $title . "', '" . $content . "', '" . $rating . "', '" . $type . "', '" . $image . "', '" . $alt_image . "', '" . $id_user . "')";

@@ -32,11 +32,11 @@ $success = createPost($db, [
 
 if ($success) {
     $_SESSION['status_success'] = "¡Post enviado con éxito!";
-    
+
     redirect($section, $id_user);
 } else {
     $_SESSION['old_data'] = $_POST;
-    $_SESSION['status_error'] = print_r($success); // @TODO - - > REVIEW
-  
+    $_SESSION['status_error'] = "Ha ocurrido un error al crear el post. Por favor, intenta de nuevo más tarde. Si el problema persiste, comunícate con el soporte.";
+
     redirect($section, $id_user);
 }
