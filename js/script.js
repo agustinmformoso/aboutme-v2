@@ -1,3 +1,28 @@
+/* Styles - Likes */
+
+let likes = document.getElementsByClassName("post__likes__icon-wrapper");
+
+for (let i = 0; i < likes.length; i++) {
+  likes[i].addEventListener("mouseenter", () => {
+    likes[i].parentElement.firstElementChild.classList.add(
+      "post__likes__number--hover"
+    );
+    likes[i].classList.add("post__likes__icon-wrapper--hover");
+    likes[i].firstElementChild.firstElementChild.classList.add(
+      "fa-heart--hover"
+    );
+  });
+
+  likes[i].addEventListener("mouseleave", () => {
+    likes[i].parentElement.firstElementChild.classList.remove(
+      "post__likes__number--hover"
+    );
+    likes[i].classList.remove("post__likes__icon-wrapper--hover");
+    likes[i].firstElementChild.firstElementChild.classList.remove(
+      "fa-heart--hover"
+    );
+  });
+}
 /* Unauthorized Modal */
 
 const unauthorizedModal = (isAuthorized) => {

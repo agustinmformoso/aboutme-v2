@@ -16,22 +16,25 @@
 [x] Follow, Unfollow, Edit buttons check.
 
 - [x] Technical debt.
-      -- [x] Default image and default image alt.
+      -- [x] Default post image and default alt image.
       -- [x] Modify return in create post.
       -- [x] Error message in post create.
 
 [x] Token bug.
+[x] Get likes.
+[x] Not auth like.
 
 ## Today
 
+[ ] Liked styles.
 [ ] Like action.
-[ ] Get likes.
+
+[ ] Edit post.
 
 ## Next
 
-[ ] Edit post.
 [ ] Edit profile.
-[ ] Default image.
+[ ] Default profile picture image.
 [ ] Upload images.
 
-[ ] Technical debt.
+[ ] Documentation.

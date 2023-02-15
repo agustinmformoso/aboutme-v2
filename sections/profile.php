@@ -2,7 +2,7 @@
 require './libraries/posts.php';
 require './libraries/comments.php';
 require './libraries/followers.php';
-require './utils/index.php';
+require './libraries/likes.php';
 
 $id = $_GET['id'];
 
@@ -156,8 +156,23 @@ $creation_date = new DateTime($user['creation_date']);
                             </a>
 
                             <div class="post__likes">
-                                <span>99</span>
-                                <i class="fa-solid fa-heart" onclick="unauthorizedModal(<?= authIsAutenticated() ? 'true' : 'false' ?>)"></i>
+                                <span class="post__likes__number <?= isLiked($db, $id_user, $post['id_post']) ? 'post__likes__number--is-liked' : '' ?>"><?= count(likesGetById($db, $post['id_post'])) ?></span>
+
+                                <div class="post__likes__icon-wrapper">
+                                    <?php
+                                    if (authIsAutenticated()) : if (isLiked($db, $id_user, $post['id_post'])) : ?>
+                                            <a href="#">
+                                                <i class="fa-solid fa-heart fa-heart--is-liked"></i>
+                                            </a>
+                                        <?php else : ?>
+                                            <a href="#">
+                                                <i class="fa-regular fa-heart"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php else : ?>
+                                        <i class="fa-regular fa-heart" onclick="unauthorizedModal(<?= authIsAutenticated() ? 'true' : 'false' ?>)"></i>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
 
