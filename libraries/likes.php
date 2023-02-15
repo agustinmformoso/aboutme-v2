@@ -46,3 +46,49 @@ function isLiked($db, $id_user, $id_post)
 
     return $row;
 }
+
+/**
+ * TODO
+ *
+ * @param mysqli $db
+ * @param int $id
+ * @return bool
+ */
+function like($db, $data)
+{
+    $id_post = mysqli_real_escape_string($db, $data['id_post']);
+    $id_user = mysqli_real_escape_string($db, $data['id_user']);
+
+    $query = "INSERT INTO likes (id_post, id_user) VALUES ($id_post, $id_user)";
+    $success = mysqli_query($db, $query);
+
+    if ($success) {
+        return mysqli_insert_id($db);
+    }
+
+    return false;
+}
+
+
+/**
+ * TODO
+ *
+ * @param mysqli $db
+ * @param int $id
+ * @return bool
+ */
+function removeLike($db, $data)
+{
+    $id_like = mysqli_real_escape_string($db, $data['id_like']);
+
+    $query = "DELETE FROM likes
+              WHERE id_like = '" . $id_like . "'";
+
+    $success = mysqli_query($db, $query);
+
+    if ($success) {
+        return true;
+    }
+
+    return false;
+}

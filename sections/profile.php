@@ -161,16 +161,18 @@ $creation_date = new DateTime($user['creation_date']);
                                 <div class="post__likes__icon-wrapper">
                                     <?php
                                     if (authIsAutenticated()) : if (isLiked($db, $id_user, $post['id_post'])) : ?>
-                                            <a href="#">
+                                            <a href="actions/remove-like.php?id_like=<?= isLiked($db, $id_user, $post['id_post'])['id_like'] ?>&id_user=<?= $id_user ?>&s=profile">
                                                 <i class="fa-solid fa-heart fa-heart--is-liked"></i>
                                             </a>
                                         <?php else : ?>
-                                            <a href="#">
+                                            <a href="actions/like.php?id_post=<?= $post['id_post'] ?>&id_user=<?= $id_user ?>&s=profile">
                                                 <i class="fa-regular fa-heart"></i>
                                             </a>
                                         <?php endif; ?>
                                     <?php else : ?>
-                                        <i class="fa-regular fa-heart" onclick="unauthorizedModal(<?= authIsAutenticated() ? 'true' : 'false' ?>)"></i>
+                                        <div>
+                                            <i class="fa-regular fa-heart" onclick="unauthorizedModal(<?= authIsAutenticated() ? 'true' : 'false' ?>)"></i>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
                             </div>

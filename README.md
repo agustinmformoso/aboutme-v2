@@ -23,11 +23,12 @@
 [x] Token bug.
 [x] Get likes.
 [x] Not auth like.
+[x] Liked styles.
 
 ## Today
 
-[ ] Liked styles.
 [ ] Like action.
+[ ] Remove like action.
 
 [ ] Edit post.
 

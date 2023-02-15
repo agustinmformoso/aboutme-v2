@@ -32,24 +32,24 @@ if (authIsAutenticated()) {
                     <div class="new-post__row">
                         <div class="new-post__select-wrapper">
                             <select name="type" id="" class="new-post__select">
-                                <option value="Film">Film</option>
+                                <option value="Film">Película</option>
                                 <option value="Serie">Serie</option>
-                                <option value="Book">Book</option>
-                                <option value="Game">Game</option>
+                                <option value="Book">Libro</option>
+                                <option value="Game">Juego</option>
                             </select>
                         </div>
 
                         <fieldset class="new-post__star-rating">
                             <input type="radio" value="5" id="stars-star5" name="rating">
-                            <label for="stars-star5" title="5 Stars"></label>
+                            <label for="stars-star5" title="5 Estrellas"></label>
                             <input type="radio" value="4" id="stars-star4" name="rating">
-                            <label for="stars-star4" title="4 Stars"></label>
+                            <label for="stars-star4" title="4 Estrellas"></label>
                             <input type="radio" value="3" id="stars-star3" name="rating">
-                            <label for="stars-star3" title="3 Stars"></label>
+                            <label for="stars-star3" title="3 Estrellas"></label>
                             <input type="radio" value="2" id="stars-star2" name="rating">
-                            <label for="stars-star2" title="2 Stars"></label>
+                            <label for="stars-star2" title="2 Estrellas"></label>
                             <input type="radio" value="1" id="stars-star1" name="rating">
-                            <label for="stars-star1" title="1 Stars"></label>
+                            <label for="stars-star1" title="1 Estrellas"></label>
                         </fieldset>
                     </div>
 
@@ -84,7 +84,7 @@ if (authIsAutenticated()) {
                 <div class="card post">
                     <div class="post__content">
                         <div class="post__content__post-data">
-                            <a href="index.php?s=profile&id=<?= $post['id_user']; ?>">
+                            <a href="index.php?s=profile&id=<?= $post['id_user'] ?>">
                                 <div class="profile-picture">
                                     <img src="img/<?= getUserById($db, $post['id_user'])['profile_picture'] ?>" alt="<?= htmlspecialchars(getUserById($db, $post['id_user'])['profile_picture_alt']); ?>">
                                 </div>
@@ -96,16 +96,18 @@ if (authIsAutenticated()) {
                                 <div class="post__likes__icon-wrapper">
                                     <?php
                                     if (authIsAutenticated()) : if (isLiked($db, $id_user, $post['id_post'])) : ?>
-                                            <a href="#">
+                                            <a href="actions/remove-like.php?id_like=<?= isLiked($db, $id_user, $post['id_post'])['id_like'] ?>&id_user=<?= $id_user ?>&s=home">
                                                 <i class="fa-solid fa-heart fa-heart--is-liked"></i>
                                             </a>
                                         <?php else : ?>
-                                            <a href="#">
+                                            <a href="actions/like.php?id_post=<?= $post['id_post'] ?>&id_user=<?= $id_user ?>&s=home">
                                                 <i class="fa-regular fa-heart"></i>
                                             </a>
                                         <?php endif; ?>
                                     <?php else : ?>
-                                        <i class="fa-regular fa-heart" onclick="unauthorizedModal(<?= authIsAutenticated() ? 'true' : 'false' ?>)"></i>
+                                        <div>
+                                            <i class="fa-regular fa-heart" onclick="unauthorizedModal(<?= authIsAutenticated() ? 'true' : 'false' ?>)"></i>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
                             </div>

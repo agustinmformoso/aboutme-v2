@@ -3,7 +3,7 @@ require_once '../data/bootstrap.php';
 require_once '../libraries/posts.php';
 require_once '../libraries/auth.php';
 
-// @TODO - - > REVIEW;
+// @TODO - - > REVIEW - 2 ID_user?;
 
 $id_user    = $_GET['id'];
 $section    = $_GET['s'];
@@ -12,15 +12,6 @@ $type       = trim($_POST['type']);
 $title      = trim($_POST['title']);
 $content    = trim($_POST['content']);
 $rating     = trim($_POST['rating']);
-
-function redirect($section, $id_user)
-{
-    if ($section == 'home') {
-        header("Location: ../index.php?s=home");
-    } else {
-        header("Location: ../index.php?s=profile&id=$id_user");
-    }
-}
 
 $success = createPost($db, [
     'id_user' => $id_user,

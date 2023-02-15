@@ -16,6 +16,7 @@ require_once __DIR__ . '/../libraries/sessions.php';
 require_once __DIR__ . '/../libraries/auth.php';
 require_once __DIR__ . '/../libraries/users.php';
 
+require_once __DIR__ . '/../utils/index.php';
 require_once __DIR__ . '/../utils/translations.php';
 
 require __DIR__ . '/conection.php';
