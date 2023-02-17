@@ -92,3 +92,27 @@ function removeLike($db, $data)
 
     return false;
 }
+
+
+/**
+ * TODO
+ *
+ * @param mysqli $db
+ * @param mixed $id
+ * @return array
+ */
+function getUserLikesById($db, $id_user)
+{
+    $id_user = mysqli_real_escape_string($db, $id_user);
+    $query = "SELECT l.* FROM likes l WHERE l.id_user = '" . $id_user . "'";
+
+    $res = mysqli_query($db, $query);
+
+    $output = [];
+
+    while ($row = mysqli_fetch_assoc($res)) {
+        $output[] = $row;
+    }
+
+    return $output;
+}

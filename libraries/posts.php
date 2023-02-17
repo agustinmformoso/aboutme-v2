@@ -95,3 +95,26 @@ function postDelete($db, $id)
 
     return $success;
 }
+
+/**
+ * Returns the post by the $id.
+ *
+ * @param mysqli $db
+ * @param mixed $id
+ * @return array
+ */
+function getUserLikedPosts($db, $id_user)
+{
+    $id_user = mysqli_real_escape_string($db, $id_user);
+    $query = "SELECT p.* FROM posts p WHERE p.id_post IN ( SELECT l.id_post FROM likes l WHERE l.id_user = '" . $id_user . "' )";
+
+    $res = mysqli_query($db, $query);
+
+    $output = [];
+
+    while ($row = mysqli_fetch_assoc($res)) {
+        $output[] = $row;
+    }
+
+    return $output;
+}

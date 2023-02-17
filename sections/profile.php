@@ -16,6 +16,7 @@ $user = getUserById($db, $id);
 
 $followers = count(getFollowersById($db, $id)) ? count(getFollowersById($db, $id)) : '0';
 $following = count(getFollowingById($db, $id)) ? count(getFollowingById($db, $id)) : '0';
+$likes = count(getUserLikedPosts($db, $id)) ? count(getUserLikedPosts($db, $id)) : '0';
 
 $birthdate = new DateTime($user['birthdate']);
 $creation_date = new DateTime($user['creation_date']);
@@ -54,6 +55,13 @@ $creation_date = new DateTime($user['creation_date']);
                             <div class="profile__stats__stat">
                                 <span><?= $following ?></span>
                                 <p>Siguiendo</p>
+                            </div>
+                        </a>
+
+                        <a href="index.php?s=liked-posts&id=<?= $id ?>">
+                            <div class="profile__stats__stat">
+                                <span><?= $likes ?></span>
+                                <p>Me gusta</p>
                             </div>
                         </a>
 

@@ -19,21 +19,24 @@
       -- [x] Default post image and default alt image.
       -- [x] Modify return in create post.
       -- [x] Error message in post create.
+      -- [ ] Id user param duplicated in create post.
 
 [x] Token bug.
 [x] Get likes.
 [x] Not auth like.
 [x] Liked styles.
+[x] Like action.
+[x] Remove like action.
 
 ## Today
 
-[ ] Like action.
-[ ] Remove like action.
+[ ] Liked posts section.
 
 [ ] Edit post.
 
 ## Next
 
+[ ] Sign in.
 [ ] Edit profile.
 [ ] Default profile picture image.
 [ ] Upload images.

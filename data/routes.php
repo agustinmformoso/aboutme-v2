@@ -20,7 +20,10 @@ $sections = [
         'title' => 'About Me | Nueva contraseña',
     ],
     'follow-list' => [
-        'title' => 'About Me | ', 
+        'title' => 'About Me | ',
+    ],
+    'liked-posts' => [
+        'title' => 'About Me | Me gusta',
     ],
     '404' => [
         'title' => 'About Me | Página no encontrada',
