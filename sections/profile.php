@@ -255,7 +255,7 @@ $creation_date = new DateTime($user['creation_date']);
 
                         <div class="post__content__actions">
                             <?php
-                            if (authIsAutenticated()) : ?>
+                            if (authIsAutenticated() && $id_user === $post['id_user']) : ?>
                                 <div class="post__content__dropdown">
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">

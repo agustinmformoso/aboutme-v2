@@ -20,7 +20,7 @@
       -- [x] Modify return in create post.
       -- [x] Error message in post create.
       -- [x] Id user param duplicated in create post.
-      -- [ ] Validate actions.
+      -- [x] Validate actions.
 
 [x] Token bug.
 [x] Get likes.
