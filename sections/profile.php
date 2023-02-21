@@ -278,6 +278,13 @@ $creation_date = new DateTime($user['creation_date']);
                                         <p class="comment__user"><?= htmlspecialchars(getUserById($db, $comment['id_user'])['username']); ?></p>
                                     </a>
                                     <p class="comment__text"><?= htmlspecialchars($comment['comment_content']); ?></p>
+
+                                    <?php
+                                    if (authIsAutenticated() && $id_user === $comment['id_user']) : ?>
+                                        <a class="comment__delete" href="actions/delete-comment.php?id_user=<?= $id_user ?>&id_comment=<?= $comment['id_comment'] ?>&id=<?= $id ?>&s=profile">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
                             <?php
                             endforeach;

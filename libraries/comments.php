@@ -48,3 +48,23 @@ function createComment($db, $data)
 
     return false;
 }
+
+/**
+ * Deletes a post item from the database with the provided $id.
+ * Returns true if successful, false otherwise
+ *
+ * @param mysqli $db
+ * @param int $id
+ * @return bool
+ */
+function commentDelete($db, $id_comment)
+{
+    $id = mysqli_real_escape_string($db, $id_comment);
+
+    $query = "DELETE FROM comments
+              WHERE id_comment = '" . $id_comment . "'";
+
+    $success = mysqli_query($db, $query);
+
+    return $success;
+}

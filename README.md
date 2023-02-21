@@ -34,11 +34,11 @@
 [x] Error messages.
 [x] Edit profile.
 [x] Create comment.
+[x] Delete comment.
 
 ## Today
 
 [ ] Edit post.
-[ ] Delete comment.
 
 ## Next
 
