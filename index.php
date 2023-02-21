@@ -57,7 +57,7 @@ $statusInfo     = sessionGetFlashValue('status_info');
             <div class="navbar__profile-picture">
                 <?php
                 if (authGetUser()['profile_picture']) : ?>
-                    <img src="img/<?= authGetUser()['profile_picture']; ?>" alt="<?= authGetUser()['profile_picture_alt']; ?>" />
+                    <img src="img/<?= authGetUser()['profile_picture'] ?>" alt="<?= authGetUser()['profile_picture_alt']; ?>" />
                 <?php
                 else : ?>
                     <p>no image</p>

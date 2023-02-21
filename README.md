@@ -27,16 +27,18 @@
 [x] Liked styles.
 [x] Like action.
 [x] Remove like action.
+[x] Liked posts section.
+[x] Sign in.
+[x] Sign in error messages.
 
 ## Today
 
-[ ] Liked posts section.
-
+[ ] Create comment.
 [ ] Edit post.
+[ ] Error messages.
 
 ## Next
 
-[ ] Sign in.
 [ ] Edit profile.
 [ ] Default profile picture image.
 [ ] Upload images.

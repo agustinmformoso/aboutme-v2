@@ -7,7 +7,20 @@ $token      = $_POST['token'];
 $email      = $_POST['email'];
 $password   = $_POST['password'];
 
+$errors = [];
+
 $user = userResetTokenIsValid($db, $token, $email);
+
+if (empty($password)) {
+    $errors['password'] = "La contraseña es obligatoria.";
+}
+
+if (!empty($errors)) {
+    $_SESSION['old_data'] = $_POST;
+    $_SESSION['errors'] = $errors;
+    header("Location: ../index.php?s=new-password&token=" . $token . "&email=" . $email);
+    exit;
+}
 
 if (!$user) {
     $_SESSION['status_error'] = "Ha ocurrido un error. Por favor, intenta de nuevo más tarde. Si el problema persiste, comunícate con el soporte.";

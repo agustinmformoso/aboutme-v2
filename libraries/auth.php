@@ -38,7 +38,6 @@ function authLogin($db, $email, $password)
                 'profile_picture_alt' => $user['profile_picture_alt'],
                 'banner_picture' => $user['banner_picture'],
                 'banner_picture_alt' => $user['banner_picture_alt'],
-                'role' => $user['role'],
             ]);
             return true;
         }
@@ -63,19 +62,18 @@ function authUpdate($db, $email)
 
     if ($user !== null) {
         authSetLogin([
-            'id_user' => $user['id_user'],
-            'email' => $user['email'],
-            'name' => $user['name'],
-            'username' => $user['username'],
-            'biography' => $user['biography'],
-            'location' => $user['location'],
-            'birthdate' => $user['birthdate'],
-            'creation_date' => $user['creation_date'],
-            'profile_picture' => $user['profile_picture'],
+            'id_user'             => $user['id_user'],
+            'email'               => $user['email'],
+            'name'                => $user['name'],
+            'username'            => $user['username'],
+            'biography'           => $user['biography'],
+            'location'            => $user['location'],
+            'birthdate'           => $user['birthdate'],
+            'creation_date'       => $user['creation_date'],
+            'profile_picture'     => $user['profile_picture'],
             'profile_picture_alt' => $user['profile_picture_alt'],
-            'banner_picture' => $user['banner_picture'],
-            'banner_picture_alt' => $user['banner_picture_alt'],
-            'role' => $user['role'],
+            'banner_picture'      => $user['banner_picture'],
+            'banner_picture_alt'  => $user['banner_picture_alt'],
         ]);
         return true;
     }

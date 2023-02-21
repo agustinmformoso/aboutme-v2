@@ -64,26 +64,22 @@ function getUserById($db, $id)
  */
 function userCreate($db, $data)
 {
-    $role = isset($data['role']) ? mysqli_real_escape_string($db, $data['role']) : 1;
+    $username   = mysqli_real_escape_string($db, $data['username']);
+    $name       = mysqli_real_escape_string($db, $data['name']);
+    $email      = mysqli_real_escape_string($db, $data['email']);
+    $password   = password_hash($data['password'], PASSWORD_DEFAULT);
+    $birthdate  = mysqli_real_escape_string($db, $data['birthdate']);
+    $location   = mysqli_real_escape_string($db, $data['location']);
+    $biography  = mysqli_real_escape_string($db, $data['biography']);
+    $profile_picture   = mysqli_real_escape_string($db, $data['profile_picture']);
+    $profile_picture_alt  = mysqli_real_escape_string($db, $data['profile_picture_alt']);
 
-    $email = mysqli_real_escape_string($db, $data['email']);
-    $name = mysqli_real_escape_string($db, $data['name'] ?? '');
-    $username = mysqli_real_escape_string($db, $data['username'] ?? '');
-    $location = mysqli_real_escape_string($db, $data['location'] ?? '');
-    $biography = mysqli_real_escape_string($db, $data['biography'] ?? '');
-    $birthdate = mysqli_real_escape_string($db, $data['birthdate'] ?? '');
+    $profile_picture = 'default-profile.png';
+    $profile_picture_alt = 'Default profile picture';
 
-    $password = password_hash($data['password'], PASSWORD_DEFAULT);
+    $query = "INSERT INTO users (username, name, biography, location, birthdate, email, profile_picture, profile_picture_alt, password)
+              VALUES ('" . $username . "', '" . $name . "', '" . $biography . "', '" . $location . "', '" . $birthdate . "', '" . $email . "', '" . $profile_picture . "', '" . $profile_picture_alt . "', '" . $password . "')";
 
-    $profile_picture = 'profile.jpg';
-    $profile_picture_alt = 'profile picture alt';
-
-    $banner_picture = 'banner.jpeg';
-    $banner_picture_alt = 'banner picture alt';
-
-
-    $query = "INSERT INTO users (username, name, biography, location, birthdate, email, profile_picture, profile_picture_alt, banner_picture, banner_picture_alt, password, role)
-              VALUES ('" . $username . "', '" . $name . "', '" . $biography . "', '" . $location . "', '" . $birthdate . "', '" . $email . "', '" . $profile_picture . "', '" . $profile_picture_alt . "', '" . $banner_picture . "', '" . $banner_picture_alt . "', '" . $password . "', '" . $role . "')";
     $success = mysqli_query($db, $query);
 
     if ($success) {

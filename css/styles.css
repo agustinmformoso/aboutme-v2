@@ -466,9 +466,15 @@ section {
 .login__form-group {
   width: 50%;
   display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .login__form-group:first-of-type {
+  margin-bottom: var(--spacing-12);
+}
+
+.login__form-group--sign-up {
   margin-bottom: var(--spacing-12);
 }
 
@@ -476,12 +482,38 @@ section {
   display: none;
 }
 
-.login__form-group input {
+.login__form-group input,
+.login__input-textarea {
   width: 100%;
   padding: var(--spacing-8);
   background-color: var(--gray-070-solid);
   border: 2px solid var(--gray-100-solid);
   border-radius: var(--border-radius-6);
+}
+
+.login__input-textarea {
+  resize: none;
+}
+
+.login__input-error {
+  margin-left: var(--spacing-8);
+  position: absolute;
+  left: 100%;
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.login__input-error i {
+  color: #dc3545;
+}
+
+.login__input-error-tooltip {
+  margin-left: var(--spacing-8);
+  background-color: var(--white);
+  border-radius: var(--border-radius-6);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-4) var(--spacing-8);
 }
 
 /* ALERTS */

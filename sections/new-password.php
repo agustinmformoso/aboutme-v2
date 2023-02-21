@@ -1,4 +1,5 @@
 <?php
+$errors = sessionGetFlashValue('errors', []);
 ?>
 
 <section>
@@ -18,6 +19,16 @@
             <div class="login__form-group">
                 <label for="password">Contraseña</label>
                 <input class="login__input" type="password" id="password" name="password" placeholder="Contraseña">
+                <div class="login__input-error">
+                    <?php
+                    if (isset($errors['password'])) :
+                    ?>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <div class="login__input-error-tooltip">
+                            <span><?= $errors['password'] ?></span>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <button class="button button--white button--form">Continuar</button>

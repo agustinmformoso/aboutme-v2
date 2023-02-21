@@ -5,7 +5,22 @@ require_once '../libraries/users.php';
 
 $email = $_POST['email'];
 
+$errors = [];
+
 $user = getUserByEmail($db, $email);
+
+if (empty($email)) {
+    $errors['email'] = "El mail esta vacío.";
+} else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors['email'] = "El formato del email es inválido, revisá que sea: 'nombre@dominio.extension'.";
+}
+
+if (!empty($errors)) {
+    $_SESSION['old_data'] = $_POST;
+    $_SESSION['errors'] = $errors;
+    header('Location: ../index.php?s=password-reset');
+    exit;
+}
 
 if (!$user) {
     $_SESSION['old_data'] = $_POST;

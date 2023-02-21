@@ -1,4 +1,6 @@
 <?php
+$errors = sessionGetFlashValue('errors', []);
+$oldData = sessionGetFlashValue('old_data', []);
 ?>
 
 <section>
@@ -13,11 +15,16 @@
             <div class="login__form-group">
                 <label for="email">Email</label>
                 <input class="login__input" type="email" id="email" name="email" placeholder="Email" value="<?= $oldData['email'] ?? ''; ?>">
-                <?php
-                if (isset($errors['email'])) : ?>
-                    <div class="login__error" id="error-email"><?= $errors['email']; ?></div>
-                <?php
-                endif; ?>
+                <div class="login__input-error">
+                    <?php
+                    if (isset($errors['email'])) :
+                    ?>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <div class="login__input-error-tooltip">
+                            <span><?= $errors['email'] ?></span>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <div class="login__form-group">
