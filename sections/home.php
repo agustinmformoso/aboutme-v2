@@ -211,6 +211,13 @@ if (authIsAutenticated()) {
                             ?>
                         </div>
                     <?php endif; ?>
+
+                    <form class="comment" action="actions/create-comment.php?id_user=<?= $id_user ?>&id_post=<?= $post['id_post'] ?>&s=home" method="POST">
+                        <div class="login__form-group login__form-group--comment">
+                            <label for="comment">Comentario</label>
+                            <input class="login__input" type="text" id="comment" name="comment" placeholder="Añade un comentario...">
+                        </div>
+                    </form>
                 </div>
             <?php
             endforeach;

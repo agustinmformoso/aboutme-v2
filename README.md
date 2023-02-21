@@ -33,11 +33,12 @@
 [x] Sign in error messages.
 [x] Error messages.
 [x] Edit profile.
+[x] Create comment.
 
 ## Today
 
-[ ] Create comment.
 [ ] Edit post.
+[ ] Delete comment.
 
 ## Next
 

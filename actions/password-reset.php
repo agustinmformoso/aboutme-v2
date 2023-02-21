@@ -10,7 +10,7 @@ $errors = [];
 $user = getUserByEmail($db, $email);
 
 if (empty($email)) {
-    $errors['email'] = "El mail esta vacío.";
+    $errors['email'] = "El mail está vacío.";
 } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors['email'] = "El formato del email es inválido, revisá que sea: 'nombre@dominio.extension'.";
 }

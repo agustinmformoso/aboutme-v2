@@ -931,3 +931,13 @@ input[type="file"] {
 .no-follow-list i {
   margin-bottom: var(--spacing-8);
 }
+
+/* COMMENT */
+
+.comment {
+  padding: 0 var(--spacing-12);
+}
+
+.login__form-group--comment {
+  width: 100%;
+}
