@@ -92,7 +92,7 @@ $creation_date = new DateTime($user['creation_date']);
 
         <?php
         if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
-            <form class="card new-post" action="actions/post-create.php?id=<?= authGetUser()['id_user']; ?>&id_user=<?= $id ?>&s=profile" method="POST">
+            <form class="card new-post" action="actions/post-create.php?id_user=<?= $id ?>&s=profile" method="POST">
                 <div class="new-post__column new-post__column--profile-picture">
                     <a href="index.php?s=profile&id=<?= $id_user ?>">
                         <div class="profile-picture">

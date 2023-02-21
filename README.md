@@ -19,7 +19,8 @@
       -- [x] Default post image and default alt image.
       -- [x] Modify return in create post.
       -- [x] Error message in post create.
-      -- [ ] Id user param duplicated in create post.
+      -- [x] Id user param duplicated in create post.
+      -- [ ] Validate actions.
 
 [x] Token bug.
 [x] Get likes.
@@ -30,16 +31,16 @@
 [x] Liked posts section.
 [x] Sign in.
 [x] Sign in error messages.
+[x] Error messages.
+[x] Edit profile.
 
 ## Today
 
 [ ] Create comment.
 [ ] Edit post.
-[ ] Error messages.
 
 ## Next
 
-[ ] Edit profile.
 [ ] Default profile picture image.
 [ ] Upload images.
 

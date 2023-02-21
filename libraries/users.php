@@ -101,19 +101,21 @@ function userCreate($db, $data)
  * @param mixed $address
  * @return bool|int
  */
-function userEdit($db, $idUser, $name, $lastname, $email, $address)
+function userEdit($db, $data)
 {
-    $email = mysqli_real_escape_string($db, $email);
-    $name = mysqli_real_escape_string($db, $name ?? '');
-    $lastname = mysqli_real_escape_string($db, $lastname ?? '');
-    $address = mysqli_real_escape_string($db, $address ?? '');
+    $id_user    = mysqli_real_escape_string($db, $data['id_user']);
+    $email      = mysqli_real_escape_string($db, $data['email']);
+    $username   = mysqli_real_escape_string($db, $data['username']);
+    $name       = mysqli_real_escape_string($db, $data['name']);
+    $location   = mysqli_real_escape_string($db, $data['location']);
+    $biography  = mysqli_real_escape_string($db, $data['biography']);
 
     $query = "UPDATE users
-            SET email        = '" . $email . "',
-                name       = '" . $name . "',
-                lastname  = '" . $lastname . "',
-                address        = '" . $address . "'
-         WHERE id_user = '" . $idUser . "'";
+                SET   name          = '" . $name . "',
+                      username    = '" . $username . "',
+                      location    = '" . $location . "',
+                      biography   = '" . $biography . "'
+                WHERE id_user     = '" . $id_user . "'";
 
     $success = mysqli_query($db, $query);
 

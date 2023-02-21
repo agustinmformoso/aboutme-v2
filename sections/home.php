@@ -19,7 +19,7 @@ if (authIsAutenticated()) {
     <div class="section__content">
         <?php
         if (authIsAutenticated()) : ?>
-            <form class="card new-post" action="actions/post-create.php?id=<?= $id_user ?>&id_user=<?= $id_user ?>&s=home" method="POST">
+            <form class="card new-post" action="actions/post-create.php?id_user=<?= $id_user ?>&s=home" method="POST">
                 <div class="new-post__column new-post__column--profile-picture">
                     <a href="index.php?s=profile&id=<?= $id_user ?>">
                         <div class="profile-picture">

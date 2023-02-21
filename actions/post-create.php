@@ -3,9 +3,6 @@ require_once '../data/bootstrap.php';
 require_once '../libraries/posts.php';
 require_once '../libraries/auth.php';
 
-// @TODO - - > REVIEW - 2 ID_user?;
-
-$id_user    = $_GET['id'];
 $section    = $_GET['s'];
 $id_user    = $_GET['id_user'];
 $type       = trim($_POST['type']);
