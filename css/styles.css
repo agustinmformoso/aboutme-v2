@@ -381,6 +381,7 @@ section {
   right: 0;
   background-color: var(--white);
   box-shadow: var(--box-shadow);
+  z-index: 100;
 }
 
 .post__content__dropdown-content a {
@@ -441,7 +442,6 @@ section {
 .comment {
   display: flex;
   margin-bottom: var(--spacing-4);
-  transition: var(--transition-5ms);
 }
 
 .comment__user {
@@ -949,7 +949,7 @@ input[type="file"] {
 
 /* COMMENT */
 
-.comment {
+.comment-input {
   padding: 0 var(--spacing-32);
 }
 

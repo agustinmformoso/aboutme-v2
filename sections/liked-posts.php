@@ -137,7 +137,7 @@ $liked_posts = getUserLikedPosts($db, $id);
                                 <div class="post__content__dropdown">
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">
-                                        <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="index.php?s=edit-post&id_post=<?= $post['id_post'] ?>&redirect=liked-posts&id=<?= $id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>&id_user=<?= $id_user ?>&s=liked-posts"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>

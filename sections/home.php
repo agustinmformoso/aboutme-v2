@@ -186,7 +186,7 @@ if (authIsAutenticated()) {
                                 <div class="post__content__dropdown">
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">
-                                        <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="index.php?s=edit-post&id_post=<?= $post['id_post'] ?>&id=<?= $id_user ?>&redirect=home"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>&id_user=<?= $id_user ?>&s=home"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
@@ -206,7 +206,6 @@ if (authIsAutenticated()) {
                                     </a>
                                     <p class="comment__text"><?= htmlspecialchars($comment['comment_content']); ?></p>
 
-
                                     <?php
                                     if (authIsAutenticated() && $id_user === $comment['id_user']) : ?>
                                         <a class="comment__delete" href="actions/delete-comment.php?id_user=<?= $id_user ?>&id_comment=<?= $comment['id_comment'] ?>    &s=home">
@@ -220,7 +219,7 @@ if (authIsAutenticated()) {
                         </div>
                     <?php endif; ?>
 
-                    <form class="comment" action="actions/create-comment.php?id_user=<?= $id_user ?>&id_post=<?= $post['id_post'] ?>&s=home" method="POST">
+                    <form class="comment-input" action="actions/create-comment.php?id_user=<?= $id_user ?>&id_post=<?= $post['id_post'] ?>&s=home" method="POST">
                         <div class="login__form-group login__form-group--comment">
                             <label for="comment">Comentario</label>
                             <input class="login__input" type="text" id="comment" name="comment" placeholder="Añade un comentario...">

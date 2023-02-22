@@ -11,7 +11,7 @@ if (authIsAutenticated()) {
     $is_following = isFollowing($db, authGetUser()['id_user'], $id);
 }
 
-$posts = getPostById($db, $id);
+$posts = getPostByUserId($db, $id);
 $user = getUserById($db, $id);
 
 $followers = count(getFollowersById($db, $id)) ? count(getFollowersById($db, $id)) : '0';
@@ -259,7 +259,7 @@ $creation_date = new DateTime($user['creation_date']);
                                 <div class="post__content__dropdown">
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">
-                                        <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="index.php?s=edit-post&id_post=<?= $post['id_post'] ?>&id_post=<?= $post['id_post'] ?>&id=<?= $id ?>&redirect=profile"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <a href="actions/post-delete.php?id=<?= $post['id_post']; ?>&id_user=<?= $id_user ?>&s=profile"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>
@@ -292,7 +292,7 @@ $creation_date = new DateTime($user['creation_date']);
                         </div>
                     <?php endif; ?>
 
-                    <form class="comment" action="actions/create-comment.php?id_user=<?= $id_user ?>&id_post=<?= $post['id_post'] ?>&s=profile&id=<?= $id ?>" method="POST">
+                    <form class="comment-input" action="actions/create-comment.php?id_user=<?= $id_user ?>&id_post=<?= $post['id_post'] ?>&s=profile&id=<?= $id ?>" method="POST">
                         <div class="login__form-group login__form-group--comment">
                             <label for="comment">Comentario</label>
                             <input class="login__input" type="text" id="comment" name="comment" placeholder="Añade un comentario...">

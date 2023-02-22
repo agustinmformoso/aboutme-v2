@@ -29,7 +29,7 @@ function getAllPosts($db)
  * @param mixed $id
  * @return array
  */
-function getPostById($db, $id)
+function getPostByUserId($db, $id)
 {
     $id = mysqli_real_escape_string($db, $id);
     $query = "SELECT p.* FROM posts p
@@ -44,6 +44,29 @@ function getPostById($db, $id)
     }
 
     return $output;
+}
+
+/**
+ * Returns the post by the $id.
+ *
+ * @param mysqli $db
+ * @param mixed $id
+ * @return array
+ */
+function getPostById($db, $id_post)
+{
+    $id_post = mysqli_real_escape_string($db, $id_post);
+
+    $query = "SELECT p.* FROM posts p
+              WHERE p.id_post = '" . $id_post . "'";
+
+    $res = mysqli_query($db, $query);
+
+    while ($row = mysqli_fetch_assoc($res)) {
+        return $row;
+    }
+
+    return $row;
 }
 
 /**
@@ -117,4 +140,40 @@ function getUserLikedPosts($db, $id_user)
     }
 
     return $output;
+}
+
+/**
+ * Creates a new user in the database with the $data provided.
+ * If sucessful, it returns the id of the created user.
+ * If not, it returns false.
+ *
+ * @param mysqli $db
+ * @param mixed $email
+ * @param mixed $name
+ * @param mixed $lastname
+ * @param mixed $address
+ * @return bool|int
+ */
+function postEdit($db, $data)
+{
+    $id_post    = mysqli_real_escape_string($db, $data['id_post']);
+    $type       = mysqli_real_escape_string($db, $data['type']);
+    $title      = mysqli_real_escape_string($db, $data['title']);
+    $content    = mysqli_real_escape_string($db, $data['content']);
+    $rating     = mysqli_real_escape_string($db, $data['rating']);
+
+    $query = "UPDATE posts
+                SET   type        = '" . $type . "',
+                      title       = '" . $title . "',
+                      content     = '" . $content . "',
+                      rating      = '" . $rating . "'
+                WHERE id_post     = '" . $id_post . "'";
+
+    $success = mysqli_query($db, $query);
+
+    if ($success) {
+        return ($success);
+    }
+
+    return false;
 }

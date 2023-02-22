@@ -28,6 +28,9 @@ $sections = [
     'edit-profile' => [
         'title' => 'About Me | Editar perfil',
     ],
+    'edit-post' => [
+        'title' => 'About Me | Editar post',
+    ],
     '404' => [
         'title' => 'About Me | Página no encontrada',
     ],

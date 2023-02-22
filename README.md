@@ -35,10 +35,12 @@
 [x] Edit profile.
 [x] Create comment.
 [x] Delete comment.
+[x] Edit post.
+[x] Redirect edit post.
 
 ## Today
 
-[ ] Edit post.
+[ ] Edit post validation fix.
 
 ## Next
 
