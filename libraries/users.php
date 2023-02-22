@@ -109,12 +109,20 @@ function userEdit($db, $data)
     $name       = mysqli_real_escape_string($db, $data['name']);
     $location   = mysqli_real_escape_string($db, $data['location']);
     $biography  = mysqli_real_escape_string($db, $data['biography']);
+    $profile_picture   = mysqli_real_escape_string($db, $data['profile_picture']);
+    $profile_picture_alt  = mysqli_real_escape_string($db, $data['profile_picture_alt']);
+    $banner_picture   = mysqli_real_escape_string($db, $data['banner_picture']);
+    $banner_picture_alt  = mysqli_real_escape_string($db, $data['banner_picture_alt']);
 
     $query = "UPDATE users
-                SET   name          = '" . $name . "',
-                      username    = '" . $username . "',
-                      location    = '" . $location . "',
-                      biography   = '" . $biography . "'
+                SET   name                 = '" . $name . "',
+                      username             = '" . $username . "',
+                      location             = '" . $location . "',
+                      biography            = '" . $biography . "',
+                      profile_picture      = '" . $profile_picture . "',
+                      profile_picture_alt  = '" . $profile_picture_alt . "',
+                      banner_picture       = '" . $banner_picture . "',
+                      banner_picture_alt   = '" . $banner_picture_alt . "'
                 WHERE id_user     = '" . $id_user . "'";
 
     $success = mysqli_query($db, $query);

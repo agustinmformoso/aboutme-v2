@@ -12,6 +12,15 @@ $type       = trim($_POST['type']);
 $title      = trim($_POST['title']);
 $content    = trim($_POST['content']);
 $rating     = trim($_POST['rating']);
+$image      = basename($_FILES["image"]["name"]);
+$alt_image  = $title . " image";
+
+$dir = PATH_IMG;
+$file_path = $dir . $image;
+
+if (!empty($_FILES["image"]["name"])) {
+    move_uploaded_file($_FILES["image"]["tmp_name"], $file_path);
+}
 
 $success = postEdit($db, [
     'id_post'   => $id_post,
@@ -19,6 +28,8 @@ $success = postEdit($db, [
     'title'     => $title,
     'content'   => $content,
     'rating'    => $rating ? $rating : 0,
+    'image'     => $image,
+    'alt_image' => $alt_image
 ]);
 
 if ($success) {

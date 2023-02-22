@@ -9,6 +9,22 @@ $username   = trim($_POST['username']);
 $location   = trim($_POST['location']);
 $biography  = trim($_POST['biography']);
 $email      = getUserById($db, $id_user)['email'];
+$profile_picture       = basename($_FILES["profile_picture"]["name"]);
+$profile_picture_alt   = $name . " profile picture";
+$banner_picture        = basename($_FILES["banner_picture"]["name"]);
+$banner_picture_alt    = $name . " banner picture";
+
+$dir = PATH_IMG;
+$file_path_pp = $dir . $profile_picture;
+$file_path_banner = $dir . $banner_picture;
+
+if (!empty($_FILES["profile_picture"]["name"])) {
+    move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $file_path_pp);
+}
+
+if (!empty($_FILES["banner_picture"]["name"])) {
+    move_uploaded_file($_FILES["banner_picture"]["tmp_name"], $file_path_banner);
+}
 
 $errors = [];
 
@@ -42,6 +58,10 @@ $id_user = userEdit($db, [
     'username'            => $username,
     'location'            => $location,
     'biography'           => $biography,
+    'profile_picture'     => $profile_picture,
+    'profile_picture_alt' => $profile_picture_alt,
+    'banner_picture'      => $banner_picture,
+    'banner_picture_alt'  => $banner_picture_alt,
 ]);
 
 if ($id_user !== false) {

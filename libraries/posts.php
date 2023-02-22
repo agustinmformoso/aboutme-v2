@@ -161,12 +161,16 @@ function postEdit($db, $data)
     $title      = mysqli_real_escape_string($db, $data['title']);
     $content    = mysqli_real_escape_string($db, $data['content']);
     $rating     = mysqli_real_escape_string($db, $data['rating']);
+    $image      = mysqli_real_escape_string($db, $data['image']) ? mysqli_real_escape_string($db, $data['image']) : '';
+    $alt_image  = mysqli_real_escape_string($db, $data['alt_image']) ? mysqli_real_escape_string($db, $data['alt_image']) : '';
 
     $query = "UPDATE posts
                 SET   type        = '" . $type . "',
                       title       = '" . $title . "',
                       content     = '" . $content . "',
-                      rating      = '" . $rating . "'
+                      rating      = '" . $rating . "',
+                      image       = '" . $image . "',
+                      alt_image   = '" . $alt_image . "'
                 WHERE id_post     = '" . $id_post . "'";
 
     $success = mysqli_query($db, $query);

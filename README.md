@@ -37,14 +37,18 @@
 [x] Delete comment.
 [x] Edit post.
 [x] Redirect edit post.
+[x] Edit post validation fix.
+[x] Default profile picture image.
+
+- [x] Upload images.
+  -- [x] Upload post.
+  -- [x] Edit user.
+  -- [x] Edit post.
 
 ## Today
 
-[ ] Edit post validation fix.
+[ ] Delete post with comments.
 
 ## Next
-
-[ ] Default profile picture image.
-[ ] Upload images.
 
 [ ] Documentation.

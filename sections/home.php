@@ -19,7 +19,7 @@ if (authIsAutenticated()) {
     <div class="section__content">
         <?php
         if (authIsAutenticated()) : ?>
-            <form class="card new-post" action="actions/post-create.php?id_user=<?= $id_user ?>&s=home" method="POST">
+            <form class="card new-post" action="actions/post-create.php?id_user=<?= $id_user ?>&s=home" method="POST" enctype="multipart/form-data">
                 <div class="new-post__column new-post__column--profile-picture">
                     <a href="index.php?s=profile&id=<?= $id_user ?>">
                         <div class="profile-picture">
@@ -59,7 +59,7 @@ if (authIsAutenticated()) {
 
                     <div class="new-post__actions">
                         <label class="new-post__file">
-                            <input type="file" />
+                            <input type="file" name="image" />
                             <i class="fa-solid fa-image"></i>
                         </label>
 

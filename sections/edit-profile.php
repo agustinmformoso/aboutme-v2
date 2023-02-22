@@ -9,10 +9,10 @@ $user = getUserById($db, $id_user);
     </div>
 
     <div class="section__content">
-        <form class="card profile profile--edit" action="actions/edit-profile.php?id_user=<?= $id_user ?>" method="POST">
+        <form class="card profile profile--edit" action="actions/edit-profile.php?id_user=<?= $id_user ?>" method="POST" enctype="multipart/form-data">
             <div class="profile__header profile__header--edit" style="background-image: url(img/<?= $user['banner_picture']; ?>)">
                 <label class="profile__edit-file">
-                    <input type="file" />
+                    <input type="file" name="banner_picture" />
                     <i class="fa-solid fa-image"></i>
                 </label>
             </div>
@@ -21,7 +21,7 @@ $user = getUserById($db, $id_user);
                 <div class="profile__stats">
                     <div class="profile__profile-picture profile__profile-picture--edit" style="background-image: url(img/<?= $user['profile_picture']; ?>)">
                         <label class="profile__edit-file">
-                            <input type="file" />
+                            <input type="file" name="profile_picture" />
                             <i class="fa-solid fa-image"></i>
                         </label>
                     </div>

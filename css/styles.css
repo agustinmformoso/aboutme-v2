@@ -210,6 +210,8 @@ section {
 .navbar__profile-picture img {
   width: 100%;
   border-radius: var(--border-radius-50-percent);
+  height: 100%;
+  object-fit: cover;
 }
 
 /* CARD */
@@ -571,6 +573,8 @@ section {
   width: 100%;
   border-radius: 50%;
   border: 6px solid var(--white);
+  object-fit: cover;
+  height: 100%;
 }
 
 .profile__account {

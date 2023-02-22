@@ -4,7 +4,7 @@ session_start();
 date_default_timezone_set('America/Argentina/Buenos_Aires');
 setlocale(LC_ALL, 'es_VE.UTF-8', 'es_ES');
 
-const PATH_IMG = __DIR__ . "/../img";
+const PATH_IMG = __DIR__ . "../../img/";
 
 const ENVIRONMENT_DEV = 0;
 const ENVIRONMENT_PROD = 1;
