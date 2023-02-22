@@ -45,10 +45,8 @@
   -- [x] Edit user.
   -- [x] Edit post.
 
+[x] Delete post with comments.
+
 ## Today
-
-[ ] Delete post with comments.
-
-## Next
 
 [ ] Documentation.

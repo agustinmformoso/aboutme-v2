@@ -111,10 +111,12 @@ function postDelete($db, $id)
 {
     $id = mysqli_real_escape_string($db, $id);
 
-    $query = "DELETE FROM posts
-              WHERE id_post = '" . $id . "'";
+    $query = "DELETE FROM comments
+                WHERE id_post = '" . $id . "';
+                DELETE FROM posts
+                WHERE id_post = '" . $id . "'";
 
-    $success = mysqli_query($db, $query);
+    $success = mysqli_multi_query($db, $query);
 
     return $success;
 }
