@@ -41,15 +41,15 @@ $post = getPostById($db, $id_post);
                         </div>
 
                         <fieldset class="new-post__star-rating">
-                            <input type="radio" value="5" id="stars-star5" name="rating" checked="<?= $post['rating'] === "5" ? true : false; ?>">
+                            <input type="radio" value="5" id="stars-star5" name="rating" <?php echo ($post['rating'] === '5') ? 'checked' : ''; ?>>
                             <label for="stars-star5" title="5 Estrellas"></label>
-                            <input type="radio" value="4" id="stars-star4" name="rating" checked="<?= $post['rating'] === "4" ? true : false; ?>">
+                            <input type="radio" value="4" id="stars-star4" name="rating" <?php echo ($post['rating'] === '4') ? 'checked' : '' ?>>
                             <label for="stars-star4" title="4 Estrellas"></label>
-                            <input type="radio" value="3" id="stars-star3" name="rating" checked="<?= $post['rating'] === "3" ? true : false; ?>">
+                            <input type="radio" value="3" id="stars-star3" name="rating" <?php echo ($post['rating'] === '3') ? 'checked' : '' ?>>
                             <label for="stars-star3" title="3 Estrellas"></label>
-                            <input type="radio" value="2" id="stars-star2" name="rating" checked="<?= $post['rating'] === "2" ? true : false; ?>">
+                            <input type="radio" value="2" id="stars-star2" name="rating" <?php echo ($post['rating'] === '2') ? 'checked' : '' ?>>
                             <label for="stars-star2" title="2 Estrellas"></label>
-                            <input type="radio" value="1" id="stars-star1" name="rating" checked="<?= $post['rating'] === "1" ? true : false; ?>">
+                            <input type="radio" value="1" id="stars-star1" name="rating" <?php echo ($post['rating'] === '1') ? 'checked' : '' ?>>
                             <label for="stars-star1" title="1 Estrellas"></label>
                         </fieldset>
                     </div>

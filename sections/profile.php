@@ -66,7 +66,7 @@ $creation_date = new DateTime($user['creation_date']);
                         </a>
 
                         <div class="profile__stats__actions">
-                            <?php if (authIsAutenticated()) : if ($id_user === $id) : ?>
+                            <?php if (authIsAutenticated()) : if ($id_user == $id) : ?>
                                     <a href="index.php?s=edit-profile" class="button button--white">Editar</a>
                                 <?php elseif ($is_following) : ?>
                                     <a href="actions/unfollow.php?id_follower=<?= $id_user ?>&id_user=<?= $id ?>" class="button button--black">Dejar de seguir</a>
@@ -92,7 +92,7 @@ $creation_date = new DateTime($user['creation_date']);
 
         <?php
         if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
-            <form class="card new-post" action="actions/post-create.php?id_user=<?= $id ?>&s=profile" method="POST">
+            <form class="card new-post" action="actions/post-create.php?id_user=<?= $id ?>&s=profile" method="POST" enctype="multipart/form-data">
                 <div class="new-post__column new-post__column--profile-picture">
                     <a href="index.php?s=profile&id=<?= $id_user ?>">
                         <div class="profile-picture">
@@ -132,7 +132,7 @@ $creation_date = new DateTime($user['creation_date']);
 
                     <div class="new-post__actions">
                         <label class="new-post__file">
-                            <input type="file" />
+                            <input type="file" name="image" />
                             <i class="fa-solid fa-image"></i>
                         </label>
 
@@ -255,7 +255,7 @@ $creation_date = new DateTime($user['creation_date']);
 
                         <div class="post__content__actions">
                             <?php
-                            if (authIsAutenticated() && $id_user === $post['id_user']) : ?>
+                            if (authIsAutenticated() && $id_user == $post['id_user']) : ?>
                                 <div class="post__content__dropdown">
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">

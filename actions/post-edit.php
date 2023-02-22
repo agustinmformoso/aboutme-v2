@@ -12,7 +12,7 @@ $type       = trim($_POST['type']);
 $title      = trim($_POST['title']);
 $content    = trim($_POST['content']);
 $rating     = trim($_POST['rating']);
-$image      = basename($_FILES["image"]["name"]);
+$image      = $_FILES["image"]["name"] ? basename($_FILES["image"]["name"]) : getPostById($db, $id_post)['image'];
 $alt_image  = $title . " image";
 
 $dir = PATH_IMG;

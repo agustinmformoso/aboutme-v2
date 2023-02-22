@@ -133,7 +133,7 @@ $liked_posts = getUserLikedPosts($db, $id);
 
                         <div class="post__content__actions">
                             <?php
-                            if (authIsAutenticated() && $id_user === $post['id_user']) : ?>
+                            if (authIsAutenticated() && $id_user == $post['id_user']) : ?>
                                 <div class="post__content__dropdown">
                                     <button onclick="displayDropdown(<?= $post['id_post']; ?>)" class="post__content__dropdown-button"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                                     <div id="dropdown-<?= $post['id_post']; ?>" class="post__content__dropdown-content">
