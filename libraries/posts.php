@@ -1,10 +1,9 @@
 <?php
 
 /**
- * Returns the post by the $id.
+ * Return all posts.
  *
  * @param mysqli $db
- * @param mixed $id
  * @return array
  */
 function getAllPosts($db)
@@ -23,17 +22,17 @@ function getAllPosts($db)
 }
 
 /**
- * Returns the post by the $id.
+ * Searches all the post from a user passing the id_user as parameter.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param int $id_user
  * @return array
  */
-function getPostByUserId($db, $id)
+function getPostByUserId($db, $id_user)
 {
-    $id = mysqli_real_escape_string($db, $id);
+    $id_user = mysqli_real_escape_string($db, $id_user);
     $query = "SELECT p.* FROM posts p
-              WHERE p.id_user = '" . $id . "'";
+              WHERE p.id_user = '" . $id_user . "'";
 
     $res = mysqli_query($db, $query);
 
@@ -47,10 +46,10 @@ function getPostByUserId($db, $id)
 }
 
 /**
- * Returns the post by the $id.
+ * Return the post passing the id_post as parameter.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param int $id_post
  * @return array
  */
 function getPostById($db, $id_post)
@@ -73,7 +72,7 @@ function getPostById($db, $id_post)
  * Creates a posts.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param mixed $data
  * @return bool
  */
 function createPost($db, $data)
@@ -100,32 +99,36 @@ function createPost($db, $data)
 }
 
 /**
- * Deletes a post item from the database with the provided $id.
+ * Deletes a post from the database with the provided $id.
  * Returns true if successful, false otherwise
  *
  * @param mysqli $db
- * @param int $id
+ * @param int $id_post
  * @return bool
  */
-function postDelete($db, $id)
+function postDelete($db, $id_post)
 {
-    $id = mysqli_real_escape_string($db, $id);
+    $id_post = mysqli_real_escape_string($db, $id_post);
 
     $query = "DELETE FROM comments
-                WHERE id_post = '" . $id . "';
+                WHERE id_post = '" . $id_post . "';
                 DELETE FROM posts
-                WHERE id_post = '" . $id . "'";
+                WHERE id_post = '" . $id_post . "'";
 
     $success = mysqli_multi_query($db, $query);
+
+    if (!$success) {
+        return false;
+    }
 
     return $success;
 }
 
 /**
- * Returns the post by the $id.
+ * Returns posts liked by the user.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param int $id_user
  * @return array
  */
 function getUserLikedPosts($db, $id_user)
@@ -145,15 +148,12 @@ function getUserLikedPosts($db, $id_user)
 }
 
 /**
- * Creates a new user in the database with the $data provided.
+ * Creates a new post in the database with the $data provided.
  * If sucessful, it returns the id of the created user.
  * If not, it returns false.
  *
  * @param mysqli $db
- * @param mixed $email
- * @param mixed $name
- * @param mixed $lastname
- * @param mixed $address
+ * @param mixed $data
  * @return bool|int
  */
 function postEdit($db, $data)

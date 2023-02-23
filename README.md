@@ -46,7 +46,6 @@
   -- [x] Edit post.
 
 [x] Delete post with comments.
+[x] Documentation.
 
 ## Today
-
-[ ] Documentation.

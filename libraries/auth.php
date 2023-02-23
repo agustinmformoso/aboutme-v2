@@ -51,9 +51,6 @@ function authLogin($db, $email, $password)
  *
  * @param mysqli $db
  * @param string $email
- * @param string $name
- * @param string $lastname
- * @param string $address
  * @return bool
  */
 function authUpdate($db, $email)

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Returns the followers by the $id.
+ * Returns the followers by the $id_user.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param mixed $id_user
  * @return array
  */
-function getFollowersById($db, $id)
+function getFollowersById($db, $id_user)
 {
-    $id = mysqli_real_escape_string($db, $id);
-    $query = "SELECT f.* FROM followers f WHERE f.id_user = '" . $id . "'";
+    $id_user = mysqli_real_escape_string($db, $id_user);
+    $query = "SELECT f.* FROM followers f WHERE f.id_user = '" . $id_user . "'";
 
     $res = mysqli_query($db, $query);
 
@@ -24,16 +24,16 @@ function getFollowersById($db, $id)
 }
 
 /**
- * Returns the followings by the $id.
+ * Returns the followings by the $id_follower.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param mixed $id_follower
  * @return array
  */
-function getFollowingById($db, $id)
+function getFollowingById($db, $id_follower)
 {
-    $id = mysqli_real_escape_string($db, $id);
-    $query = "SELECT f.* FROM followers f WHERE f.id_follower = '" . $id . "'";
+    $id_follower = mysqli_real_escape_string($db, $id_follower);
+    $query = "SELECT f.* FROM followers f WHERE f.id_follower = '" . $id_follower . "'";
 
     $res = mysqli_query($db, $query);
 
@@ -47,10 +47,11 @@ function getFollowingById($db, $id)
 }
 
 /**
- * TODO
+ * Checks if one user follows another user.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param int $id_follower
+ * @param int $id_user
  * @return array
  */
 function isFollowing($db, $id_follower, $id_user)
@@ -72,11 +73,11 @@ function isFollowing($db, $id_follower, $id_user)
 }
 
 /**
- * TODO
+ * Creates a follower in the followers table.
  *
  * @param mysqli $db
- * @param mixed $id
- * @return array
+ * @param mixed $data
+ * @return bool
  */
 function follow($db, $data)
 {
@@ -87,17 +88,19 @@ function follow($db, $data)
     $success = mysqli_query($db, $query);
 
     if ($success) {
-        return mysqli_insert_id($db);
+        mysqli_insert_id($db);
+
+        return $success;
     }
 
     return false;
 }
 
 /**
- * TODO
+ * Delete a follower passing the id_follower and the id_user as parameter.
  *
  * @param mysqli $db
- * @param int $id
+ * @param mixed $data
  * @return bool
  */
 function unfollow($db, $data)

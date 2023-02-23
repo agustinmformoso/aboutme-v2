@@ -26,18 +26,18 @@ function getUserByEmail($db, $email)
 }
 
 /**
- * Searches for a user by email in the database.
+ * Searches for a user by id_user in the database.
  * If found it, it returns an array with the registry data.
  * Otherwise it returns null.
  *
  * @param mysqli $db
- * @param string $email
+ * @param string $id_user
  * @return array|null
  */
-function getUserById($db, $id)
+function getUserById($db, $id_user)
 {
     $query = "SELECT * FROM users
-              WHERE id_user = '" . $id . "'";
+              WHERE id_user = '" . $id_user . "'";
     $res = mysqli_query($db, $query);
 
     if ($row = mysqli_fetch_assoc($res)) {
@@ -53,13 +53,7 @@ function getUserById($db, $id)
  * If not, it returns false.
  *
  * @param mysqli $db
- * @param array $data   Associative array where the keys must match the names of the table fields.
- *                      Possible values:
- *                      email: Required. string.
- *                      password: Required. string.
- *                      name: Required. string.
- *                      lastname: Required. string.
- *                      role: Required. int. Default: 2
+ * @param array $data
  * @return bool|int
  */
 function userCreate($db, $data)
@@ -90,15 +84,12 @@ function userCreate($db, $data)
 }
 
 /**
- * Creates a new user in the database with the $data provided.
+ * Edit a new user in the database with the $data provided.
  * If sucessful, it returns the id of the created user.
  * If not, it returns false.
  *
  * @param mysqli $db
- * @param mixed $email
- * @param mixed $name
- * @param mixed $lastname
- * @param mixed $address
+ * @param mixed $data
  * @return bool|int
  */
 function userEdit($db, $data)

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Returns the comments by the $id.
+ * Returns the comments passing the post_id as parameter.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param mixed $id_post
  * @return array
  */
-function getCommentsById($db, $id)
+function getCommentsById($db, $id_post)
 {
-    $id = mysqli_real_escape_string($db, $id);
-    $query = "SELECT c.* FROM comments c WHERE c.id_post = '" . $id . "'";
+    $id_post = mysqli_real_escape_string($db, $id_post);
+    $query = "SELECT c.* FROM comments c WHERE c.id_post = '" . $id_post . "'";
 
     $res = mysqli_query($db, $query);
 
@@ -24,10 +24,10 @@ function getCommentsById($db, $id)
 }
 
 /**
- * Creates a posts.
+ * Creates a comment.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param mixed $data
  * @return bool
  */
 function createComment($db, $data)
@@ -50,7 +50,7 @@ function createComment($db, $data)
 }
 
 /**
- * Deletes a post item from the database with the provided $id.
+ * Deletes a comment item from the database with the provided $id.
  * Returns true if successful, false otherwise
  *
  * @param mysqli $db
@@ -65,6 +65,10 @@ function commentDelete($db, $id_comment)
               WHERE id_comment = '" . $id_comment . "'";
 
     $success = mysqli_query($db, $query);
+
+    if (!$success) {
+        return false;
+    }
 
     return $success;
 }

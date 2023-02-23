@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Returns the likes by the $id.
+ * Returns a list of likes by id post.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param int $id_post
  * @return array
  */
-function likesGetById($db, $id)
+function likesGetById($db, $id_post)
 {
-    $id = mysqli_real_escape_string($db, $id);
-    $query = "SELECT l.* FROM likes l WHERE l.id_post = '" . $id . "'";
+    $id_post = mysqli_real_escape_string($db, $id_post);
+    $query = "SELECT l.* FROM likes l WHERE l.id_post = '" . $id_post . "'";
 
     $res = mysqli_query($db, $query);
 
@@ -24,11 +24,12 @@ function likesGetById($db, $id)
 }
 
 /**
- * Returns the likes by the $id.
+ * Checks if the post is liked by the user.
  *
  * @param mysqli $db
- * @param mixed $id
- * @return array
+ * @param int $id_user
+ * @param int $id_post
+ * @return bool
  */
 function isLiked($db, $id_user, $id_post)
 {
@@ -48,10 +49,10 @@ function isLiked($db, $id_user, $id_post)
 }
 
 /**
- * TODO
+ * Add a like the the likes table passing the id_post and id_user as parameter.
  *
  * @param mysqli $db
- * @param int $id
+ * @param array $data
  * @return bool
  */
 function like($db, $data)
@@ -63,7 +64,9 @@ function like($db, $data)
     $success = mysqli_query($db, $query);
 
     if ($success) {
-        return mysqli_insert_id($db);
+        mysqli_insert_id($db);
+
+        return $success;
     }
 
     return false;
@@ -71,10 +74,10 @@ function like($db, $data)
 
 
 /**
- * TODO
+ * Remove a like passing the id_like as parameter.
  *
  * @param mysqli $db
- * @param int $id
+ * @param int $id_like
  * @return bool
  */
 function removeLike($db, $data)
@@ -95,10 +98,10 @@ function removeLike($db, $data)
 
 
 /**
- * TODO
+ * Searches user likes passing the user_id as parameter.
  *
  * @param mysqli $db
- * @param mixed $id
+ * @param int $id_user
  * @return array
  */
 function getUserLikesById($db, $id_user)
