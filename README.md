@@ -47,5 +47,3 @@
 
 [x] Delete post with comments.
 [x] Documentation.
-
-## Today

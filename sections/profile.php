@@ -91,7 +91,7 @@ $creation_date = new DateTime($user['creation_date']);
         </div>
 
         <?php
-        if (authIsAutenticated() && authGetUser()['id_user'] === $id) : ?>
+        if (authIsAutenticated() && authGetUser()['id_user'] === $id_user) : ?>
             <form class="card new-post" action="actions/post-create.php?id_user=<?= $id ?>&s=profile" method="POST" enctype="multipart/form-data">
                 <div class="new-post__column new-post__column--profile-picture">
                     <a href="index.php?s=profile&id=<?= $id_user ?>">
@@ -280,7 +280,7 @@ $creation_date = new DateTime($user['creation_date']);
                                     <p class="comment__text"><?= htmlspecialchars($comment['comment_content']); ?></p>
 
                                     <?php
-                                    if (authIsAutenticated() && $id_user === $comment['id_user']) : ?>
+                                    if (authIsAutenticated() && $id_user == $comment['id_user']) : ?>
                                         <a class="comment__delete" href="actions/delete-comment.php?id_user=<?= $id_user ?>&id_comment=<?= $comment['id_comment'] ?>&id=<?= $id ?>&s=profile">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
@@ -292,12 +292,15 @@ $creation_date = new DateTime($user['creation_date']);
                         </div>
                     <?php endif; ?>
 
-                    <form class="comment-input" action="actions/create-comment.php?id_user=<?= $id_user ?>&id_post=<?= $post['id_post'] ?>&s=profile&id=<?= $id ?>" method="POST">
-                        <div class="login__form-group login__form-group--comment">
-                            <label for="comment">Comentario</label>
-                            <input class="login__input" type="text" id="comment" name="comment" placeholder="Añade un comentario...">
-                        </div>
-                    </form>
+                    <?php
+                    if (authIsAutenticated()) : ?>
+                        <form class="comment-input" action="actions/create-comment.php?id_user=<?= $id_user ?>&id_post=<?= $post['id_post'] ?>&s=profile&id=<?= $id ?>" method="POST">
+                            <div class="login__form-group login__form-group--comment">
+                                <label for="comment">Comentario</label>
+                                <input class="login__input" type="text" id="comment" name="comment" placeholder="Añade un comentario...">
+                            </div>
+                        </form>
+                    <?php endif; ?>
                 </div>
             <?php
             endforeach;
